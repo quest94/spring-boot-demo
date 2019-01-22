@@ -1,0 +1,49 @@
+# 用于测试环境，谨慎使用会自动删除数据和表并更新表
+
+server:
+  # 修改tomcat的访问端口号位8888，默认为8080
+  port: 8888
+#  context-path: /mind_map
+#  ssl:
+#    enabled: true
+#    # ip地址192.168.0.211
+#    key-store: classpath:keyStore/keystore-test.jks
+#    key-store-password: 123456
+#    key-store-type: PKCS12
+
+spring:
+  # 数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.214:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: root
+  ########################################################
+  ### Java Persistence Api JPA相关配置
+  ########################################################
+  jpa:
+    # 指定数据库类型
+    database: mysql
+    # 控制台打印sql
+#    show-sql: true
+    hibernate:
+      # 建表策略，这里用create，即启动时删除数据库中的表，然后创建，退出时不删除数据表
+      ddl-auto: create
+      # 建表策略，这里用create-drop，即启动时删除数据库中的表，然后创建，退出时删除数据表 如果表不存在则报错
+#      ddl-auto: create-drop
+      # 表中字段命名策略,这里要引入hibernate的核心包，不然这个命名策略会报错
+#      naming:
+#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        # 方言
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        # 控制台打印sql
+        show_sql: true
+        format_sql: true
+
+# 日志
+logging:
+  path: ${user.dir}

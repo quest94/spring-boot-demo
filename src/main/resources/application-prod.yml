@@ -1,0 +1,41 @@
+# 用于生产环境
+
+server:
+  # 修改tomcat的访问端口号位8888，默认为8080
+  port: 8443
+  #  context-path: /mind_map
+#  ssl:
+#    enabled: true
+#    # ip地址192.168.20.1
+#    key-store: classpath:keyStore/keystore-prod.jks
+#    key-store-password: klmtklmt
+#    key-store-type: PKCS12
+
+spring:
+  # 数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: root
+  ########################################################
+  ### Java Persistence Api JPA相关配置
+  ########################################################
+  jpa:
+    # 指定数据库类型
+    database: mysql
+    hibernate:
+      # 建表策略，这里用update，即启动时表不一致则更新表，原有数据保留
+      ddl-auto: update
+      # 表中字段命名策略,这里要引入hibernate的核心包，不然这个命名策略会报错
+    #      naming:
+    #        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        # 方言
+        dialect: org.hibernate.dialect.MySQL5Dialect
+# 日志
+logging:
+  path: ${user.dir}\logs

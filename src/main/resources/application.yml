@@ -1,0 +1,56 @@
+#项目运行配置环境
+spring:
+  application:
+    name: 5Gate
+  # 激活哪一个环境的配置文件
+  profiles:
+#    active: prod
+    active: dev
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  messages:
+    encoding: UTF-8
+  # 修改数据源（数据库连接池）
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall
+      filter:
+        stat:
+          merge-sql: true
+          slow-sql-millis: 5000
+          log-slow-sql: true
+  jpa:
+    open-in-view: true
+#  servlet:
+#    multipart:
+#      max-file-size:
+#      max-request-size:
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    accesslog:
+      enabled: true
+      buffered: true
+      file-date-format: .yyyy-MM-dd
+      pattern: common
+      prefix: access_log
+      rename-on-rotate: false
+      request-attributes-enabled: false
+      rotate: true
+      suffix: .log

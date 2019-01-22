@@ -1,4 +1,4 @@
-package com.ly.demo;
+package com.quec1994.common;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

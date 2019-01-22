@@ -1,0 +1,55 @@
+# 用于开发环境环境
+
+server:
+  # 修改tomcat的访问端口号位8888，默认为8080
+  port: 8888
+#  servlet:
+#    context-path: /mind_map
+#  ssl:
+#    enabled: true
+#    # ip地址127.0.0.1
+#    key-store: classpath:keyStore/keystore-dev.jks
+#    key-store-password: 123456
+#    key-store-type: PKCS12
+
+spring:
+  # 数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.126.129:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: root
+
+  ########################################################
+  ### Java Persistence Api JPA相关配置
+  ########################################################
+  jpa:
+    #指定数据库类型
+    database: mysql
+    # 控制台打印sql
+#    show-sql: true
+    hibernate:
+      # 建表策略，这里用validate，即项目启动进行表结构校验，如果不一致则报错
+      ddl-auto: validate
+      # 表中字段命名策略,这里要引入hibernate的核心包，不然这个命名策略会报错
+#      naming:
+#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        # 方言
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        # 控制台打印sql
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        current_session_context_class: thread
+#    open-in-view: false
+
+# 日志
+logging:
+  path: ${user.dir}\target\logs
+#  config: classpath:logback-spring.xml
+
+
