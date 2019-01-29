@@ -1,10 +1,10 @@
 #项目运行配置环境
 spring:
   application:
-    name: 5Gate
+    name: demo
   # 激活哪一个环境的配置文件
   profiles:
-#    active: prod
+    #    active: prod
     active: dev
   http:
     encoding:
@@ -37,10 +37,17 @@ spring:
           log-slow-sql: true
   jpa:
     open-in-view: true
-#  servlet:
-#    multipart:
-#      max-file-size:
-#      max-request-size:
+  #  servlet:
+  #    multipart:
+  #      max-file-size:
+  #      max-request-size:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html; charset=utf-8
 server:
   tomcat:
     uri-encoding: UTF-8

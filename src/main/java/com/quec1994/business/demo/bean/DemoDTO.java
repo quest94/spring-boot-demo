@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * <P>ClassName: Demo</P>
- * <P>Descriprion: 例子业务的Bean</P>
+ * <P>ClassName: DemoDTO</P>
+ * <P>Description: 例子业务的Bean</P>
  *
  * @author quec1994
  * @version V1.0, 2019/1/22
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Demo {
+public class DemoDTO {
     private String name;
     private Integer age;
 }

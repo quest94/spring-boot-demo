@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>错误页面</title>
+</head>
+<body>
+<h1 th:utext="${message}">错误提示</h1>
+<script th:inline="javascript">
+  var message = [[${message}]];
+  console.log(message);
+</script>
+</body>
+</html>

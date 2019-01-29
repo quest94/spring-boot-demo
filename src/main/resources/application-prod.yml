@@ -12,6 +12,8 @@ server:
 #    key-store-type: PKCS12
 
 spring:
+  thymeleaf:
+    cache: true
   # 数据库连接配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
