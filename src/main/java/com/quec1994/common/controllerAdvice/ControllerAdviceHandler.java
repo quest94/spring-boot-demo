@@ -70,7 +70,7 @@ public class ControllerAdviceHandler {
      * 即方法（参数注解@RequestBody时）参数不正确
      *
      * @param request       请求
-     * @param bindingResult 参数错误绑定的结果
+     * @param bindingResult 参数验证结果
      * @return 根据访问方式跳转控制器路径
      * @author V1.0, quec1994, 2019/1/29 22:35
      **/

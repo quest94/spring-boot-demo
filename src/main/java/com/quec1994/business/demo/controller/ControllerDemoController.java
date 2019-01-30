@@ -34,7 +34,7 @@ public class ControllerDemoController {
      * @author V1.0, quec1994, 2019/1/26 11:58
      **/
     @RequestMapping("exceptionDemo1/{id}")
-    public String exceptionDemo(@PathVariable int id) throws BusinessException {
+    public String exceptionDemo(@PathVariable int id){
         if (id == 1) {
             throw new RuntimeException("运行时异常");
         } else {

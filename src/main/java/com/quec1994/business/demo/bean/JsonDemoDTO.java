@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class JsonDemoDTO {
     // 字符串类型的数据
-    @NotBlank(message="字符串不能为空")
+    @NotBlank(message = "字符串不能为空")
     private String string;
     // 集合类型的数据
     @NotEmpty(message = "集合不能为空")

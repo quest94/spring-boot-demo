@@ -7,7 +7,7 @@ package com.quec1994.common.controllerAdvice.exception;
  * @author quec1994
  * @version V1.0, 2019/1/28
  **/
-public class BusinessException extends Exception {
+public class BusinessException extends RuntimeException {
     public BusinessException(String message) {
         super(message);
     }

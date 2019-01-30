@@ -24,7 +24,12 @@ import java.util.Map;
  **/
 @RestController
 @RequiredArgsConstructor
-@Validated
+//@Validated
+/*
+    @Validated：提供了一个分组功能，可以在入参验证时，根据不同的分组采用不同的验证机制，这个网上也有资料，不详述。
+
+    @Valid：作为标准JSR-303规范，还没有吸收分组的功能。
+ */
 public class RestControllerDemoController {
 
     @NonNull
@@ -75,7 +80,7 @@ public class RestControllerDemoController {
      * @author V1.0, quec1994, 2019/1/26 11:58
      **/
     @RequestMapping("exceptionDemo2/{id}")
-    public String exceptionDemo2(@PathVariable int id) throws BusinessException {
+    public String exceptionDemo2(@PathVariable int id){
         if (id == 1) {
             throw new RuntimeException("运行时异常");
         } else {
