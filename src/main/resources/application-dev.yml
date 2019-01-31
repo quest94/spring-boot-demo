@@ -52,6 +52,8 @@ spring:
 # 日志
 logging:
   path: ${user.dir}\target\logs
+  level:
+    root: info
 #  config: classpath:logback-spring.xml
 
 

@@ -49,3 +49,5 @@ spring:
 # 日志
 logging:
   path: ${user.dir}
+  level:
+    root: debug

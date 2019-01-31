@@ -41,3 +41,5 @@ spring:
 # 日志
 logging:
   path: ${user.dir}\logs
+  level:
+    root: info
