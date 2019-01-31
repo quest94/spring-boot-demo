@@ -1,14 +1,13 @@
-package com.quec1994.business.demo.controller;
+package com.quec1994.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.quec1994.business.demo.bean.JsonDemoDTO;
-import com.quec1994.business.demo.service.IDemoService;
+import com.quec1994.model.JsonDemoDTO;
+import com.quec1994.service.IDemoService;
 import com.quec1994.common.controllerAdvice.exception.BusinessException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

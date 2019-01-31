@@ -1,6 +1,6 @@
-package com.quec1994.business.demo.service.impl;
+package com.quec1994.service.impl;
 
-import com.quec1994.business.demo.service.IDemoService;
+import com.quec1994.service.IDemoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.quec1994.business.demo.controller;
+package com.quec1994.controller;
 
 import com.quec1994.common.controllerAdvice.exception.BusinessException;
 import lombok.RequiredArgsConstructor;

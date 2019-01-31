@@ -1,4 +1,4 @@
-package com.quec1994.business.demo.service;
+package com.quec1994.service;
 
 /**
  * <P>ClassName: IDemoService</P>

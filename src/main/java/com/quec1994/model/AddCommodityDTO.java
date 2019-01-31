@@ -1,4 +1,4 @@
-package com.quec1994.business.commodity.bean;
+package com.quec1994.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
