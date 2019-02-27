@@ -48,12 +48,16 @@ spring:
         use_sql_comments: true
         current_session_context_class: thread
 #    open-in-view: false
-
+# 配置slq打印日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 # 日志
 logging:
   path: ${user.dir}\target\logs
   level:
     root: info
 #  config: classpath:logback-spring.xml
+
 
 

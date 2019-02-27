@@ -2,7 +2,7 @@ package com.quec1994.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.quec1994.model.JsonDemoDTO;
+import com.quec1994.bean.JsonDemoDTO;
 import com.quec1994.service.IDemoService;
 import com.quec1994.common.controllerAdvice.exception.BusinessException;
 import lombok.NonNull;

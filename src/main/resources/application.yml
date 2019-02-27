@@ -62,5 +62,8 @@ server:
       rotate: true
       suffix: .log
 mybatis-plus:
-  mapper-locations: classpath*:com/quec1994/mapper/*/*.xml
+  mapper-locations: classpath*:mapper/*/*.xml
   type-aliases-package:
+  global-config:
+    db-config:
+      db-type: mysql

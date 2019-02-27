@@ -1,4 +1,4 @@
-package com.quec1994.model;
+package com.quec1994.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
