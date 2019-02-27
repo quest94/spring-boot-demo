@@ -1,4 +1,4 @@
-package com.quec1994.common.listener;
+package com.quec1994.config.listener;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  **/
 @Repository
 public interface UserMapper extends BaseMapper<User> {
-    int deleteByName(String name);
+
 }
 

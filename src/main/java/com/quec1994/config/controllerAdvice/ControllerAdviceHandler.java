@@ -1,7 +1,7 @@
-package com.quec1994.common.controllerAdvice;
+package com.quec1994.config.controllerAdvice;
 
-import com.quec1994.common.controllerAdvice.exception.BusinessException;
 import com.quec1994.common.utils.DateUtil;
+import com.quec1994.config.controllerAdvice.exception.CommonException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindException;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -27,7 +28,6 @@ import java.util.concurrent.TimeoutException;
 @ControllerAdvice
 @Slf4j
 public class ControllerAdviceHandler {
-
 
     /**
      * 给ModelMap设置通用值
@@ -43,14 +43,14 @@ public class ControllerAdviceHandler {
     }
 
     /**
-     * 拦截并处理 BusinessException 类型的异常
+     * 拦截并处理 CommonException 类型的异常
      *
      * @param ex 发生的异常
      * @return 根据访问方式跳转控制器路径
      * @author V1.0, quec1994, 2019/1/28 20:02
      **/
-    @ExceptionHandler(BusinessException.class)
-    public String exceptionHandler(HttpServletRequest request, BusinessException ex) {
+    @ExceptionHandler(CommonException.class)
+    public String exceptionHandler(HttpServletRequest request, CommonException ex) {
         return jump(request, ex.getMessage(), null);
     }
 
@@ -119,12 +119,13 @@ public class ControllerAdviceHandler {
         } else {
             error = ex.getMessage();
         }
-        String message = "系统内部错误<br/>如果一直显示这个，请记下出错时间后联系管理员<br/>时间：" + DateUtil.getCurrentDateTimeString();
+        String message = "系统出现了预想之外的错误<br/>如果一直显示这个，请记下出错时间后联系管理员<br/>时间："
+                + DateUtil.getCurrentDateTimeString();
         return jump(request, message, error);
     }
 
     /**
-     * 判断请求的返回数据
+     * 判断请求的返回数据类型
      *
      * @param request 请求
      * @param message 错误提示
@@ -134,16 +135,16 @@ public class ControllerAdviceHandler {
      **/
     private String jump(HttpServletRequest request, String message, String error) {
         request.setAttribute("message", message);
-        if (error != null) {
-            request.setAttribute("error", error);
-        }
+        Optional.ofNullable(error).ifPresent(e -> request.setAttribute("error", e));
+        boolean isAcceptContain = request.getHeader("accept").contains("application/json");
+        boolean isContentTypeContain = request.getHeader("Content-Type").contains("application/json");
+        Optional<String> optional = Optional.ofNullable(request.getHeader("X-Requested-With"));
+        boolean isXMLHttpRequest = optional.filter(u -> u.contains("XMLHttpRequest")).isPresent();
         // 判断是否是ajax请求
-        if (request.getHeader("accept").contains("application/json")
-                || (request.getHeader("X-Requested-With") != null
-                && request.getHeader("X-Requested-With").contains("XMLHttpRequest"))) {
-            return "forward:/returnJson";
+        if (isAcceptContain || isContentTypeContain || isXMLHttpRequest) {
+            return "forward:/return/json";
         } else {
-            return "forward:/returnHtml";
+            return "forward:/return/html";
         }
     }
 

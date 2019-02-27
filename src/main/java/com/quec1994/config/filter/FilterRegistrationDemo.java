@@ -1,4 +1,4 @@
-package com.quec1994.common.filter;
+package com.quec1994.config.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -39,7 +39,7 @@ public class FilterRegistrationDemo {
 class DemoFilter2 implements Filter {
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         log.info("filter2 初始化");
     }
 

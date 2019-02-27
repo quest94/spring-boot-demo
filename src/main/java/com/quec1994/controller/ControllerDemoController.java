@@ -1,6 +1,6 @@
 package com.quec1994.controller;
 
-import com.quec1994.common.controllerAdvice.exception.BusinessException;
+import com.quec1994.config.controllerAdvice.exception.CommonException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +38,7 @@ public class ControllerDemoController {
         if (id == 1) {
             throw new RuntimeException("运行时异常");
         } else {
-            throw new BusinessException("自定义控制器层异常");
+            throw new CommonException("自定义控制器层异常");
         }
     }
 

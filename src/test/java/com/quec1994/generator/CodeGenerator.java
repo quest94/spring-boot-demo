@@ -20,21 +20,21 @@ import java.util.List;
  **/
 public class CodeGenerator {
 
-    public static void generator(String modelName, String... tableName) {
+    private static void generator(String modelName, String... tableName) {
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/src/main/java");
+        gc.setOutputDir(projectPath + "/src/test/java");
         gc.setAuthor("quec1994");
         gc.setOpen(false);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.126.129:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false");
+        dsc.setUrl("jdbc:mysql://192.168.195.128:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("quec1994");
@@ -44,7 +44,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(modelName);
-        pc.setParent("com.quec1994");
+        pc.setParent("com.quec1994.generator");
         mpg.setPackageInfo(pc);
 
         // 自定义配置

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.quec1994.bean.JsonDemoDTO;
 import com.quec1994.service.IDemoService;
-import com.quec1994.common.controllerAdvice.exception.BusinessException;
+import com.quec1994.config.controllerAdvice.exception.CommonException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.ModelMap;
@@ -83,7 +83,7 @@ public class RestControllerDemoController {
         if (id == 1) {
             throw new RuntimeException("运行时异常");
         } else {
-            throw new BusinessException("自定义控制器层异常");
+            throw new CommonException("自定义控制器层异常");
         }
     }
 
