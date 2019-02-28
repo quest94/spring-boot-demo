@@ -1,0 +1,36 @@
+spring:
+  # 修改数据源（数据库连接池）
+  datasource:
+    # 使用阿里的druid数据库连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 初始化连接大小
+      initial-size: 5
+      # 连接池最小空闲
+      min-idle: 5
+      # 连接池最大使用连接数量
+      max-active: 20
+      # 获取连接最大等待时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 25200000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall
+      filter:
+        stat:
+          merge-sql: true
+          slow-sql-millis: 5000
+          log-slow-sql: true
+      # 打开removeAbandoned功能
+      remove-abandoned: true
+      # 1800秒，也就是30分钟
+      remove-abandoned-timeout: 1800
+      # 关闭abanded连接时输出错误日志
+      log-abandoned: true

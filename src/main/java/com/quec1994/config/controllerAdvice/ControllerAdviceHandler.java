@@ -3,6 +3,7 @@ package com.quec1994.config.controllerAdvice;
 import com.quec1994.common.utils.DateUtil;
 import com.quec1994.config.controllerAdvice.exception.CommonException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -43,7 +44,7 @@ public class ControllerAdviceHandler {
     }
 
     /**
-     * 拦截并处理 CommonException 类型的异常
+     * 拦截并处理自定义异常类型
      *
      * @param ex 发生的异常
      * @return 根据访问方式跳转控制器路径
@@ -55,7 +56,21 @@ public class ControllerAdviceHandler {
     }
 
     /**
-     * 拦截并处理 MethodArgumentNotValidException 类型的异常
+     * 拦截并处理转换http消息时发生的异常
+     *
+     * @param ex 发生的异常
+     * @return 根据访问方式跳转控制器路径
+     * @author V1.0, quec1994, 2019/1/28 20:02
+     **/
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public String httpMsgExceptionHandler(HttpServletRequest request, HttpMessageNotReadableException ex) {
+        String string = "消息转换出错，ip地址：" + request.getRemoteAddr() + "；访问方式：" + request.getMethod() + "；访问地址：" + request.getRequestURI();
+        log.error(string, getClass(), ex);
+        return jump(request, "消息转换出错", ex.getMessage());
+    }
+
+    /**
+     * 拦截并处理参数验证失败时的异常
      *
      * @param ex 发生的异常
      * @return 根据访问方式跳转控制器路径
@@ -67,7 +82,7 @@ public class ControllerAdviceHandler {
     }
 
     /**
-     * 即方法（参数注解@RequestBody时）参数不正确
+     * 拦截并处理参数验证失败时的异常即方法，（参数注解@RequestBody时）参数不正确
      *
      * @param request       请求
      * @param bindingResult 参数验证结果
@@ -136,10 +151,15 @@ public class ControllerAdviceHandler {
     private String jump(HttpServletRequest request, String message, String error) {
         request.setAttribute("message", message);
         Optional.ofNullable(error).ifPresent(e -> request.setAttribute("error", e));
-        boolean isAcceptContain = request.getHeader("accept").contains("application/json");
-        boolean isContentTypeContain = request.getHeader("Content-Type").contains("application/json");
-        Optional<String> optional = Optional.ofNullable(request.getHeader("X-Requested-With"));
-        boolean isXMLHttpRequest = optional.filter(u -> u.contains("XMLHttpRequest")).isPresent();
+
+        Optional<String> aOptional = Optional.ofNullable(request.getHeader("accept"));
+        boolean isAcceptContain = aOptional.filter(u -> u.contains("application/json")).isPresent();
+
+        Optional<String> ctOptional = Optional.ofNullable(request.getHeader("Content-Type"));
+        boolean isContentTypeContain = ctOptional.filter(u -> u.contains("application/json")).isPresent();
+
+        Optional<String> xmlrOptional = Optional.ofNullable(request.getHeader("X-Requested-With"));
+        boolean isXMLHttpRequest = xmlrOptional.filter(u -> u.contains("XMLHttpRequest")).isPresent();
         // 判断是否是ajax请求
         if (isAcceptContain || isContentTypeContain || isXMLHttpRequest) {
             return "forward:/return/json";

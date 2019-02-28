@@ -1,16 +1,8 @@
-# 用于开发环境环境
+# 开发环境个性化配置
 
 server:
   # 修改tomcat的访问端口号位8888，默认为8080
   port: 8888
-#  servlet:
-#    context-path: /mind_map
-#  ssl:
-#    enabled: true
-#    # ip地址127.0.0.1
-#    key-store: classpath:keyStore/keystore-dev.jks
-#    key-store-password: 123456
-#    key-store-type: PKCS12
 
 spring:
   thymeleaf:

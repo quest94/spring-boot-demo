@@ -1,15 +1,8 @@
-# 用于测试环境，谨慎使用会自动删除数据和表并更新表
+# 测试环境个性化配置
 
 server:
   # 修改tomcat的访问端口号位8888，默认为8080
   port: 8888
-#  context-path: /mind_map
-#  ssl:
-#    enabled: true
-#    # ip地址192.168.0.211
-#    key-store: classpath:keyStore/keystore-test.jks
-#    key-store-password: 123456
-#    key-store-type: PKCS12
 
 spring:
   thymeleaf:

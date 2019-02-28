@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- *
+ *  用户实体类
  * </p>
  *
  * @author quec1994

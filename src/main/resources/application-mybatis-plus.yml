@@ -1,0 +1,10 @@
+mybatis-plus:
+  # 自动扫描mapper.xml文件，支持通配符
+  mapper-locations: classpath*:mapper/*/*.xml
+  # 启用别名，这样就无需写全路径类名了，具体可自行查阅资料
+  type-aliases-package: com.quec1994.entity
+  global-config:
+    db-config:
+      db-type: mysql
+      # 全局唯一ID
+      id-type: uuid

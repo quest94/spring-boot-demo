@@ -1,2 +1,2 @@
 # spring-boot-demo
-spring boot 学习实践
+简单练手项目，目前整合了spring boot、mybatis-plus、swagger2、redis

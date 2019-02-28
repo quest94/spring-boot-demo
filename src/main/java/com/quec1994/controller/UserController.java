@@ -14,10 +14,14 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 /**
  * <P>ClassName: UserController</P>
@@ -31,6 +35,10 @@ import javax.validation.Valid;
 @Api(tags = "用户API")
 //@RequestMapping("/user")
 public class UserController {
+
+    @NonNull
+    @Qualifier("UserRedisTemplate")
+    RedisTemplate<String, User> urt;
 
     @NonNull IUserService userService;
 
@@ -54,6 +62,8 @@ public class UserController {
 
     @PutMapping("user")
     @ApiOperation(value = "用户修改")
+    //更新时 直接删除缓存 以保证下次获取时先从数据库中获取最新数据
+    @CacheEvict(value = "DEMO", key = "#userReq.id")
     public Boolean updateUser(@Valid @RequestBody UserModifyReq userReq) {
         if (userReq.getId() == null || "".equals(userReq.getId())) {
             throw new CommonException("0000", "更新时ID不能为空");
@@ -69,18 +79,35 @@ public class UserController {
     @GetMapping("/user/{id}")
     @ApiOperation(value = "用户查询(ID)")
     @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111111111", required = true)
+    // spring cache管理缓存
+    @Cacheable(value = "DEMO", key = "#id")
     public UserResp getUser(@PathVariable("id") String id) {
         //查询
-        User user = userService.getById(id);
-        if (user == null) {
-            throw new CommonException("0001", "用户ID：" + id + "，未找到");
+        User user = Optional.ofNullable(userService.getById(id))
+                .orElseThrow(() -> new CommonException("0001", "用户ID：" + id + "，未找到"));
+        return user2userResp(user);
+    }
+
+    @GetMapping("/userDIY/{id}")
+    @ApiOperation(value = "用户查询(ID)-手动控制缓存")
+    @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111111111", required = true)
+    public UserResp getUserDIY(@PathVariable("id") String id) {
+        UserResp userResp;
+        User user = urt.opsForValue().get(id);
+        if (user != null) {
+            userResp = user2userResp(user);
+        } else {
+            //查询
+            User user2 = Optional.ofNullable(userService.getById(id))
+                    .orElseThrow(() -> new CommonException("0001", "用户ID：" + id + "，未找到"));
+            userResp = user2userResp(user2);
+            urt.opsForValue().set(id, user2);
         }
-        return UserResp.builder()
-                .id(user.getId())
-                .code(user.getCode())
-                .name(user.getName())
-                .status(user.getStatus())
-                .build();
+        return userResp;
+    }
+
+    private UserResp user2userResp(User u) {
+        return UserResp.builder().id(u.getId()).code(u.getCode()).name(u.getName()).status(u.getStatus()).build();
     }
 
     @GetMapping("/user/page")
