@@ -18,12 +18,11 @@ import javax.validation.constraints.NotBlank;
  * <P>ClassName: RedisController</P>
  * <P>Description: redis测试控制器</P>
  *
- * @author qyz12
+ * @author quec1994
  * @version V1.0, 2019/2/28
  **/
 @RestController
 @RequiredArgsConstructor
-//@RequestMapping("/redis")
 @Api(tags = "redis 测试API")
 public class RedisController {
     @NonNull StringRedisTemplate srt;

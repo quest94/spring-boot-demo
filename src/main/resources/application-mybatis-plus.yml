@@ -8,3 +8,5 @@ mybatis-plus:
       db-type: mysql
       # 全局唯一ID
       id-type: uuid
+  # 配置扫描通用枚举,支持通配符 * 或者 ; 分割
+  type-enums-package: com.quec1994.entity.*

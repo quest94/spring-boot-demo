@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.quec1994.bean.JsonDemoDTO;
 import com.quec1994.service.IDemoService;
-import com.quec1994.config.controllerAdvice.exception.CommonException;
+import com.quec1994.config.advice.exception.CommonException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.ModelMap;
@@ -41,7 +41,7 @@ public class RestControllerDemoController {
      **/
     @RequestMapping("demo")
     public Map<String, Object> demo() {
-        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> result = new HashMap<>(2);
         result.put("success", Boolean.TRUE);
         result.put("demo", demoService.demo());
         return result;

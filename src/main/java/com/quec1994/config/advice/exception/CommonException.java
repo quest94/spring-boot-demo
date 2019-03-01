@@ -1,4 +1,4 @@
-package com.quec1994.config.controllerAdvice.exception;
+package com.quec1994.config.advice.exception;
 
 /**
  * <P>ClassName: CommonException</P>

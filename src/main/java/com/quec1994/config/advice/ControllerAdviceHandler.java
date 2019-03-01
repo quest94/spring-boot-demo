@@ -1,7 +1,6 @@
-package com.quec1994.config.controllerAdvice;
+package com.quec1994.config.advice;
 
-import com.quec1994.common.utils.DateUtil;
-import com.quec1994.config.controllerAdvice.exception.CommonException;
+import com.quec1994.config.advice.exception.CommonException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.ui.ModelMap;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.concurrent.TimeoutException;
 
@@ -134,8 +135,8 @@ public class ControllerAdviceHandler {
         } else {
             error = ex.getMessage();
         }
-        String message = "系统出现了预想之外的错误<br/>如果一直显示这个，请记下出错时间后联系管理员<br/>时间："
-                + DateUtil.getCurrentDateTimeString();
+        String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss"));
+        String message = "系统出现了预想之外的错误<br/>如果一直显示这个，请记下出错时间后联系管理员<br/>当前时间：" + now;
         return jump(request, message, error);
     }
 

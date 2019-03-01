@@ -1,4 +1,4 @@
-package com.quec1994.config.controllerAdvice.controller;
+package com.quec1994.config.advice.controller;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

@@ -26,10 +26,12 @@ public class UserResp {
     private String code;
     @ApiModelProperty(value = "名称", dataType = "String", name = "name", example = "张三")
     private String name;
-    @ApiModelProperty(value = "状态", dataType = "String", name = "status", example = "1")
-    private String status;
     @ApiModelProperty(value = "年龄", dataType = "Integer", name = "age", example = "18")
     int age;
+    @ApiModelProperty(value = "性别", dataType = "String", name = "sex", example = "男性")
+    String sex;
     @ApiModelProperty(value = "邮箱", dataType = "String", name = "email", example = "xxxxx@xxx.com")
     String email;
+    @ApiModelProperty(value = "状态", dataType = "String", name = "status", example = "启用")
+    private String status;
 }

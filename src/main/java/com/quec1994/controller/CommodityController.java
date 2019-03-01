@@ -3,7 +3,7 @@ package com.quec1994.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.quec1994.bean.AddCommodityDTO;
-import com.quec1994.config.controllerAdvice.exception.CommonException;
+import com.quec1994.config.advice.exception.CommonException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

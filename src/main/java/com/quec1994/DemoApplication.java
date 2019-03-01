@@ -4,8 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * <P>ClassName: DemoApplication</P>
+ * <P>Description: spring boot 启动类</P>
+ *
+ * @author quec1994
+ * @version V1.0, 2019/1/28
+ **/
 @SpringBootApplication
 @ServletComponentScan
 @Slf4j

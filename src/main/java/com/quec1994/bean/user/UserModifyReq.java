@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
  * <P>ClassName: UserModifyReq</P>
  * <P>Description: 添加用户时使用的请求类</P>
  *
- * @author qyz12
+ * @author quec1994
  * @version V1.0, 2019/2/28
  **/
 @EqualsAndHashCode(callSuper = false)

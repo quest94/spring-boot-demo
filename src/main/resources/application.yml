@@ -6,7 +6,7 @@ spring:
   profiles:
     #    active: prod
     active: dev
-    include: druid,mybatis-plus,thymeleaf,redis
+    include: druid,mybatis-plus,thymeleaf,redis,rabbitmq
   http:
     encoding:
       charset: UTF-8

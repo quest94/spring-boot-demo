@@ -1,7 +1,7 @@
 package com.quec1994.mapper.user;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.quec1994.entity.User;
+import com.quec1994.entity.user.User;
 import org.springframework.stereotype.Repository;
 
 /**

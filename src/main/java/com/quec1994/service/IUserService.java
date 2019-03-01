@@ -1,7 +1,8 @@
 package com.quec1994.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.quec1994.entity.User;
+import com.quec1994.entity.user.User;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -13,4 +14,6 @@ import com.quec1994.entity.User;
  */
 public interface IUserService extends IService<User> {
 
+    @Transactional(rollbackFor = Exception.class)
+    String saveUser(User user);
 }

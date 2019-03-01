@@ -1,12 +1,13 @@
 package com.quec1994.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.quec1994.bean.user.UserModifyReq;
 import com.quec1994.bean.user.UserReq;
 import com.quec1994.bean.user.UserResp;
-import com.quec1994.config.controllerAdvice.exception.CommonException;
-import com.quec1994.entity.User;
+import com.quec1994.config.advice.exception.CommonException;
+import com.quec1994.entity.user.User;
 import com.quec1994.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -33,7 +34,6 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @Api(tags = "用户API")
-//@RequestMapping("/user")
 public class UserController {
 
     @NonNull
@@ -44,19 +44,15 @@ public class UserController {
 
     @PostMapping("user")
     @ApiOperation(value = "用户新增")
-    //正常业务时， 需要在user类里面进行事务控制，控制层一般不进行业务控制的。
-//    @Transactional(rollbackFor = Exception.class)
     public Boolean addUser(@Valid @RequestBody UserReq userReq) {
         User user = new User();
         user.setCode(userReq.getCode());
         user.setName(userReq.getName());
         user.setAge(userReq.getAge());
         user.setEmail(userReq.getEmail());
-        //由于设置了主键策略 id可不用赋值 会自动生成
-        //user.setId(0L);
-        userService.save(user);
-        //事务测试
-//        System.out.println(1 / 0);
+        /* 由于设置了主键策略 id可不用赋值 会自动生成
+        user.setId(0L); */
+        userService.saveUser(user);
         return Boolean.TRUE;
     }
 
@@ -85,7 +81,7 @@ public class UserController {
         //查询
         User user = Optional.ofNullable(userService.getById(id))
                 .orElseThrow(() -> new CommonException("0001", "用户ID：" + id + "，未找到"));
-        return user2userResp(user);
+        return user2UserResp(user);
     }
 
     @GetMapping("/userDIY/{id}")
@@ -95,19 +91,26 @@ public class UserController {
         UserResp userResp;
         User user = urt.opsForValue().get(id);
         if (user != null) {
-            userResp = user2userResp(user);
+            userResp = user2UserResp(user);
         } else {
             //查询
             User user2 = Optional.ofNullable(userService.getById(id))
                     .orElseThrow(() -> new CommonException("0001", "用户ID：" + id + "，未找到"));
-            userResp = user2userResp(user2);
+            userResp = user2UserResp(user2);
             urt.opsForValue().set(id, user2);
         }
         return userResp;
     }
 
-    private UserResp user2userResp(User u) {
-        return UserResp.builder().id(u.getId()).code(u.getCode()).name(u.getName()).status(u.getStatus()).build();
+    private UserResp user2UserResp(User user) {
+        System.out.println("user转化成json字符串为：" + JSONObject.toJSONString(user));
+        UserResp.UserRespBuilder builder = UserResp.builder();
+        builder.id(user.getId());
+        builder.code(user.getCode());
+        builder.name(user.getName());
+        builder.status(user.getStatus().toString());
+        builder.sex(user.getSex().toString());
+        return builder.build();
     }
 
     @GetMapping("/user/page")
@@ -117,8 +120,6 @@ public class UserController {
     public IPage pageUser(int current, int size) {
         // 分页
         Page<User> page = new Page<>(current, size);
-        // 不输出总页数
-        // page.setSearchCount(false);
         return userService.page(page);
     }
 }

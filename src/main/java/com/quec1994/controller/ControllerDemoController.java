@@ -1,6 +1,6 @@
 package com.quec1994.controller;
 
-import com.quec1994.config.controllerAdvice.exception.CommonException;
+import com.quec1994.config.advice.exception.CommonException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

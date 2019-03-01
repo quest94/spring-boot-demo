@@ -32,9 +32,9 @@ public class DemoFilter implements Filter {
         // 比如设置请求编码
         // request.setCharacterEncoding("UTF-8");
         // response.setCharacterEncoding("UTF-8");
-        //TODO 进行业务逻辑
+        // TODO 进行业务逻辑
 
-        //链路 直接传给下一个过滤器
+        // 链路 直接传给下一个过滤器
         chain.doFilter(request, response);
     }
 

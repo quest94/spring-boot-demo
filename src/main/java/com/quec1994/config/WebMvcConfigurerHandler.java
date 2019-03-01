@@ -71,6 +71,8 @@ public class WebMvcConfigurerHandler implements WebMvcConfigurer {
         fastJsonConfig.setSerializerFeatures(
                 SerializerFeature.DisableCircularReferenceDetect
         );
+        // 设置WriteEnumUsingToString
+        fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteEnumUsingToString);
         msgConverter.setFastJsonConfig(fastJsonConfig);
         // 2-1 处理中文乱码问题
         List<MediaType> mediaTypes = new ArrayList<>();
