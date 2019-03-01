@@ -4,10 +4,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * <P>ClassName: UserReq</P>
@@ -30,10 +32,18 @@ public class UserReq {
     String name;
 
     @ApiModelProperty(value = "年龄", dataType = "Integer", name = "age", example = "18", required = true)
+    @NotNull(message = "年龄不能为空")
     @Min(value = 1L, message = "年龄不能小于1")
     int age;
+
+    @ApiModelProperty(value = "性别", dataType = "Integer", name = "sex", example = "1", required = true)
+    @NotNull(message = "性别不能为空")
+    @Range(min = 1L, max = 2L, message = "性别值为1-2，1为男性，2为女性")
+    private int sex;
 
     @ApiModelProperty(value = "邮箱", dataType = "String", name = "email", example = "xxxxx@xxx.com")
     @Email(regexp = ".+@.+\\..+", message = "邮箱格式不正确")
     String email;
+
+
 }

@@ -74,7 +74,7 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     @ApiOperation(value = "用户查询(ID)")
-    @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111111111", required = true)
+    @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111aaa222bbb", required = true)
     // spring cache管理缓存
     @Cacheable(value = "DEMO", key = "#id")
     public UserResp getUser(@PathVariable("id") String id) {
@@ -86,7 +86,7 @@ public class UserController {
 
     @GetMapping("/userDIY/{id}")
     @ApiOperation(value = "用户查询(ID)-手动控制缓存")
-    @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111111111", required = true)
+    @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111aaa222bbb", required = true)
     public UserResp getUserDIY(@PathVariable("id") String id) {
         UserResp userResp;
         User user = urt.opsForValue().get(id);

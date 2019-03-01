@@ -3,9 +3,11 @@ package com.quec1994.bean.user;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * <P>ClassName: UserModifyReq</P>
@@ -30,4 +32,10 @@ public class UserModifyReq extends UserReq {
     @NotBlank(message = "邮箱不能为空")
     @Email(regexp = ".+@.+\\..+", message = "邮箱格式不正确")
     private String email;
+
+    @ApiModelProperty(value = "状态", dataType = "Integer", name = "status", example = "1", required = true)
+    @NotNull(message = "状态不能为空")
+    @Range(min = 0, max = 1, message = "状态值为0-1，0为禁用，1为启用")
+    private int status;
+
 }
