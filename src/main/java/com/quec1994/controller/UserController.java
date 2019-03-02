@@ -1,6 +1,5 @@
 package com.quec1994.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.quec1994.bean.user.UserModifyReq;
@@ -103,13 +102,12 @@ public class UserController {
     }
 
     private UserResp user2UserResp(User user) {
-        System.out.println("user转化成json字符串为：" + JSONObject.toJSONString(user));
         UserResp.UserRespBuilder builder = UserResp.builder();
         builder.id(user.getId());
         builder.code(user.getCode());
         builder.name(user.getName());
-        builder.status(user.getStatus().toString());
-        builder.sex(user.getSex().toString());
+        builder.status(user.getStatus());
+        builder.sex(user.getSex());
         return builder.build();
     }
 

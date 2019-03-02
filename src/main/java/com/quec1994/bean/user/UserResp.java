@@ -1,5 +1,7 @@
 package com.quec1994.bean.user;
 
+import com.quec1994.entity.user.SexEnum;
+import com.quec1994.entity.user.StatusEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -27,11 +29,11 @@ public class UserResp {
     @ApiModelProperty(value = "名称", dataType = "String", name = "name", example = "张三")
     private String name;
     @ApiModelProperty(value = "年龄", dataType = "Integer", name = "age", example = "18")
-    int age;
+    private int age;
     @ApiModelProperty(value = "性别", dataType = "String", name = "sex", example = "男性")
-    String sex;
+    private SexEnum sex;
     @ApiModelProperty(value = "邮箱", dataType = "String", name = "email", example = "xxxxx@xxx.com")
-    String email;
+    private String email;
     @ApiModelProperty(value = "状态", dataType = "String", name = "status", example = "启用")
-    private String status;
+    private StatusEnum status;
 }
