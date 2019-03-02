@@ -33,5 +33,15 @@ public enum StatusEnum implements IEnum<Integer> {
     public String toString() {
         return this.paraphrase;
     }
+
+    public static StatusEnum getSexEnum(int value) {
+        for (StatusEnum c : StatusEnum.values()) {
+            if (c.value == value) {
+                return c;
+            }
+        }
+        return DISABLE;
+    }
+
 }
 

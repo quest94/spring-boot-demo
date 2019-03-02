@@ -38,4 +38,16 @@ public enum SexEnum {
     @Override
     public String toString() {
         return this.description;
-    }}
+    }
+
+    public static SexEnum getSexEnum(int code) {
+        switch (code) {
+            case 1:
+                return MALE;
+            case 2:
+                return WOMAN;
+            default:
+                return null;
+        }
+    }
+}

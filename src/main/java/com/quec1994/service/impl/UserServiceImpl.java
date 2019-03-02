@@ -3,7 +3,7 @@ package com.quec1994.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.quec1994.entity.user.User;
 import com.quec1994.mapper.user.UserMapper;
-import com.quec1994.rabbit.send.user.save.SaveUserService;
+import com.quec1994.rabbit.send.user.save.SaveUserSender;
 import com.quec1994.service.IUserService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
     @NonNull
-    private SaveUserService saveUserService;
+    private SaveUserSender saveUserService;
     @NonNull
     private UserMapper userMapper;
 
@@ -32,7 +32,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         // 这里写保存数据库操作...
         userMapper.insert(user);
         // 发送消息到RabbitMQ
-        saveUserService.sendSaveUserMessage(user.getId());
+        saveUserService.sendSaveUserMessage(user);
         return user.getId();
     }
 }

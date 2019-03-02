@@ -1,8 +1,12 @@
 package com.quec1994.config;
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import static com.quec1994.rabbit.Constants.*;
 
@@ -17,17 +21,6 @@ import static com.quec1994.rabbit.Constants.*;
 public class RabbitConfig {
 
     /**
-     * 创建普通helloQueue队列
-     *
-     * @return helloQueue队列
-     * @author V1.0, quec1994, 2019/3/1 14:10
-     **/
-    @Bean
-    public Queue helloQueue() {
-        return new Queue("hello");
-    }
-
-    /**
      * 创建普通userQueue队列
      *
      * @return userQueue队列
@@ -38,7 +31,7 @@ public class RabbitConfig {
         return new Queue(SAVE_USER_QUEUE_NAME);
     }
 
-    //===============以下是验证 Directed Exchange（路由键交换机）的队列==========
+    //===============以下是验证 Directed Exchange（直连交换机）的队列==========
 
     /**
      * 配置队列实例，并且设置持久化队列
@@ -50,12 +43,12 @@ public class RabbitConfig {
     public Queue queue() {
         return new Queue(DIRECT_MESSAGE_QUEUE_NAME, true);
     }
-    //===============以上是验证 Directed Exchange（路由键交换机）的队列==========
+    //===============以上是验证 Directed Exchange（直连交换机）的队列==========
 
     /**
-     * 配置交换机实例，路由键（route-key）方式分发消息
+     * 配置直连交换机实例，路由键（route-key）方式分发消息
      *
-     * @return 交换机实例
+     * @return 直连交换机实例
      * @author V1.0, qyz12, 2019/3/1 16:26
      **/
     @Bean
@@ -64,7 +57,7 @@ public class RabbitConfig {
     }
 
     /**
-     * 将队列绑定到交换机上，并设置消息分发的路由键
+     * 将队列绑定到直连交换机上，并设置消息分发的路由键
      *
      * @return 绑定关系
      * @author V1.0, qyz12, 2019/3/1 16:26
@@ -145,7 +138,7 @@ public class RabbitConfig {
      **/
     @Bean
     public Queue aMessage() {
-        return new Queue("fanout.A");
+        return new Queue(FANOUT_A_QUEUE_NAME);
     }
 
     /**
@@ -156,7 +149,7 @@ public class RabbitConfig {
      **/
     @Bean
     public Queue bMessage() {
-        return new Queue("fanout.B");
+        return new Queue(FANOUT_B_QUEUE_NAME);
     }
 
     /**
@@ -167,7 +160,7 @@ public class RabbitConfig {
      **/
     @Bean
     public Queue cMessage() {
-        return new Queue("fanout.C");
+        return new Queue(FANOUT_C_QUEUE_NAME);
     }
     //===============以上是验证 Fanout Exchange 的队列==========
 
@@ -181,11 +174,11 @@ public class RabbitConfig {
      **/
     @Bean
     FanoutExchange fanoutExchange() {
-        return new FanoutExchange("fanoutExchange");
+        return new FanoutExchange(FANOUT_EXCHANGE_EXCHANGE_NAME);
     }
 
     /**
-     * 将队列topic.messages与exchange绑定，binding_key为topic.#,模糊匹配
+     * 将队列fanout.A队列与扇形交换机绑定
      *
      * @return 绑定关系
      * @author V1.0, quec1994, 2019/3/1 14:10
@@ -196,7 +189,7 @@ public class RabbitConfig {
     }
 
     /**
-     * 将队列topic.messages与exchange绑定，binding_key为topic.#,模糊匹配
+     * 将队列fanout.B队列与扇形交换机绑定
      *
      * @return 绑定关系
      * @author V1.0, quec1994, 2019/3/1 14:10
@@ -207,7 +200,7 @@ public class RabbitConfig {
     }
 
     /**
-     * 将队列topic.messages与exchange绑定，binding_key为topic.#,模糊匹配
+     * 将队列fanout.C队列与扇形交换机绑定
      *
      * @return 绑定关系
      * @author V1.0, quec1994, 2019/3/1 14:10

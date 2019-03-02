@@ -1,5 +1,7 @@
 package com.quec1994.rabbit.receive.user.save;
 
+import com.alibaba.fastjson.JSONObject;
+import com.quec1994.entity.user.User;
 import com.quec1994.rabbit.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -19,10 +21,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class SaveUserReceiver {
 
+    /**
+     * 保存用户消息接收类
+     *
+     * @param user 用户信息
+     * @author V1.0, qyz12, 2019/3/2 19:56
+     **/
     @RabbitHandler
-    public void receiveMessage(String id) {
-        log.info("新增一个用户，用户id为：" + id);
-        //可以添加自定义业务逻辑处理
+    public void receiveMessage(User user) {
+        log.info("新增一个用户，用户信息为：" + JSONObject.toJSONString(user));
     }
 
 }

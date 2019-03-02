@@ -45,5 +45,4 @@ public class UserReq {
     @Email(regexp = ".+@.+\\..+", message = "邮箱格式不正确")
     String email;
 
-
 }

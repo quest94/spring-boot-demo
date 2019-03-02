@@ -6,6 +6,8 @@ import com.quec1994.bean.user.UserModifyReq;
 import com.quec1994.bean.user.UserReq;
 import com.quec1994.bean.user.UserResp;
 import com.quec1994.config.advice.exception.CommonException;
+import com.quec1994.entity.user.SexEnum;
+import com.quec1994.entity.user.StatusEnum;
 import com.quec1994.entity.user.User;
 import com.quec1994.service.IUserService;
 import io.swagger.annotations.Api;
@@ -44,15 +46,21 @@ public class UserController {
     @PostMapping("user")
     @ApiOperation(value = "用户新增")
     public Boolean addUser(@Valid @RequestBody UserReq userReq) {
+        User user = userReq2User(userReq);
+        /* 由于设置了主键策略 id可不用赋值 会自动生成
+        user.setId(0L); */
+        userService.saveUser(user);
+        return Boolean.TRUE;
+    }
+
+    private User userReq2User(UserReq userReq) {
         User user = new User();
         user.setCode(userReq.getCode());
         user.setName(userReq.getName());
         user.setAge(userReq.getAge());
         user.setEmail(userReq.getEmail());
-        /* 由于设置了主键策略 id可不用赋值 会自动生成
-        user.setId(0L); */
-        userService.saveUser(user);
-        return Boolean.TRUE;
+        user.setSex(SexEnum.getSexEnum(userReq.getSex()));
+        return user;
     }
 
     @PutMapping("user")
@@ -63,10 +71,10 @@ public class UserController {
         if (userReq.getId() == null || "".equals(userReq.getId())) {
             throw new CommonException("0000", "更新时ID不能为空");
         }
-        User user = new User();
-        user.setCode(userReq.getCode());
-        user.setName(userReq.getName());
+        User user = userReq2User(userReq);
         user.setId(userReq.getId());
+        user.setEmail(userReq.getEmail());
+        user.setStatus(StatusEnum.getSexEnum(userReq.getStatus()));
         userService.updateById(user);
         return Boolean.TRUE;
     }

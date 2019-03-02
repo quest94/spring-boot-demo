@@ -2,6 +2,7 @@
 Spring Boot 的骨架项目，目前整合了<br>
 * Spring Boot 2.1.1.RELEASE
 * Redis
+* Project Lombok
 * Spring Cache
 * RabbitMQ 
 * Mybatis-plus 3.0.7.1
