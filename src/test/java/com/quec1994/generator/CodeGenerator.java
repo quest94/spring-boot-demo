@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <P>ClassName: CodeGenerator</P>
- * <P>Description: MyBatis Plus代码生成器</P>
+ * <P>ClassName: CodeGenerator
+ * <P>Description: MyBatis Plus代码生成器
  *
  * @author quec1994
  * @version V1.0, 2019/1/31

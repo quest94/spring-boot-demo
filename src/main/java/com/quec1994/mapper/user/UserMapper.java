@@ -5,8 +5,8 @@ import com.quec1994.entity.user.User;
 import org.springframework.stereotype.Repository;
 
 /**
- * <P>ClassName: UserMapper</P>
- * <P>Description: user映射类</P>
+ * <P>ClassName: UserMapper
+ * <P>Description: user映射类
  *
  * @author quec1994
  * @version V1.0, 2019/1/31

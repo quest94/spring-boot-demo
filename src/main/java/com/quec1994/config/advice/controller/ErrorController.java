@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 /**
- * <P>ClassName: ErrorController</P>
- * <P>Description: 错误返回的Controller类</P>
+ * <P>ClassName: ErrorController
+ * <P>Description: 错误返回的Controller类
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

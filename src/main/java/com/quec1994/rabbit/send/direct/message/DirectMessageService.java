@@ -1,17 +1,17 @@
-package com.quec1994.common.rabbit;
+package com.quec1994.rabbit.send.direct.message;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
 /**
- * <P>ClassName: SendMessageService</P>
- * <P>Description: 发送消息统一业务层</P>
+ * <P>ClassName: DirectMessageService
+ * <P>Description: 发送消息统一业务层
  *
  * @author qyz12
  * @version V1.0, 2019/3/1
  * <P>说明: 继承RabbitTemplate.ConfirmCallback接口，而ConfirmCallback接口是用来回调消息发送成功后的方法，
- * 当一个消息被成功写入到RabbitMQ服务端时，会自动的回调RabbitTemplate.ConfirmCallback接口内的confirm方法完成通知</P>
+ * 当一个消息被成功写入到RabbitMQ服务端时，会自动的回调RabbitTemplate.ConfirmCallback接口内的confirm方法完成通知
  **/
-public interface SendMessageService extends RabbitTemplate.ConfirmCallback {
+public interface DirectMessageService extends RabbitTemplate.ConfirmCallback {
 
     /**
      * 发送消息
@@ -21,5 +21,4 @@ public interface SendMessageService extends RabbitTemplate.ConfirmCallback {
      **/
     void sendDirectMessage(Object message);
 
-    void sendSaveUserMessage(Object message);
 }

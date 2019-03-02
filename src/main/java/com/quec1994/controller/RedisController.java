@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.constraints.NotBlank;
 
 /**
- * <P>ClassName: RedisController</P>
- * <P>Description: redis测试控制器</P>
+ * <P>ClassName: RedisController
+ * <P>Description: redis测试控制器
  *
  * @author quec1994
  * @version V1.0, 2019/2/28

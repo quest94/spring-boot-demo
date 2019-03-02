@@ -15,8 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <P>ClassName: DemoController</P>
- * <P>Description: JSON字符串返回例子的控制器类</P>
+ * <P>ClassName: DemoController
+ * <P>Description: JSON字符串返回例子的控制器类
  *
  * @author quec1994
  * @version V1.0, 2019/1/22

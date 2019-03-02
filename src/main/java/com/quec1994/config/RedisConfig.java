@@ -25,8 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <P>ClassName: RedisConfig</P>
- * <P>Description: Redis配置类</P>
+ * <P>ClassName: RedisConfig
+ * <P>Description: Redis配置类
  *
  * @author quec1994
  * @version V1.0, 2019/2/28

@@ -4,11 +4,11 @@ import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import static com.quec1994.common.rabbit.Constants.*;
+import static com.quec1994.rabbit.Constants.*;
 
 /**
- * <P>ClassName: RabbitMQConfig</P>
- * <P>Description: RabbitMQ 配置</P>
+ * <P>ClassName: RabbitMQConfig
+ * <P>Description: RabbitMQ 配置
  *
  * @author quec1994
  * @version V1.0, 2019/3/1

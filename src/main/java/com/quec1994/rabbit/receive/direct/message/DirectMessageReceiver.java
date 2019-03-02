@@ -1,6 +1,6 @@
-package com.quec1994.receive;
+package com.quec1994.rabbit.receive.direct.message;
 
-import com.quec1994.common.rabbit.Constants;
+import com.quec1994.rabbit.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -21,7 +21,7 @@ public class DirectMessageReceiver {
 
     @RabbitHandler
     public void receiveMessage(String userName) {
-        log.info("【消息接收者1】收到的消息为：" + userName);
+        log.info("【Direct消息接收者1】收到的消息为：" + userName);
         //可以添加自定义业务逻辑处理
     }
 

@@ -10,8 +10,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
- * <P>ClassName: UserModifyReq</P>
- * <P>Description: 添加用户时使用的请求类</P>
+ * <P>ClassName: UserModifyReq
+ * <P>Description: 添加用户时使用的请求类
  *
  * @author quec1994
  * @version V1.0, 2019/2/28

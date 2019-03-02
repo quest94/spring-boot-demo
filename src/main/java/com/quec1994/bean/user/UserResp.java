@@ -8,8 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * <P>ClassName: UserResp</P>
- * <P>Description: 用于前端显示用户信息</P>
+ * <P>ClassName: UserResp
+ * <P>Description: 用于前端显示用户信息
  *
  * @author quec1994
  * @version V1.0, 2019/2/27

@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <P>ClassName: WebMvcConfigurer</P>
- * <P>Description: WebMvcConfigurer </P>
+ * <P>ClassName: WebMvcConfigurer
+ * <P>Description: WebMvcConfigurer
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

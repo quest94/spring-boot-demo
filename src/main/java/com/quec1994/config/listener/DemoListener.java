@@ -7,8 +7,8 @@ import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
 
 /**
- * <P>ClassName: DemoListener</P>
- * <P>Description: Servlet监听器测试类</P>
+ * <P>ClassName: DemoListener
+ * <P>Description: Servlet监听器测试类
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

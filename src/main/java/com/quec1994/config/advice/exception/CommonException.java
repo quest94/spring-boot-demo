@@ -1,8 +1,8 @@
 package com.quec1994.config.advice.exception;
 
 /**
- * <P>ClassName: CommonException</P>
- * <P>Description: 自定义控制层抛出异常</P>
+ * <P>ClassName: CommonException
+ * <P>Description: 自定义控制层抛出异常
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

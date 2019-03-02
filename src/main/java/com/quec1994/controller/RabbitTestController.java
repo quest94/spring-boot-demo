@@ -1,6 +1,6 @@
 package com.quec1994.controller;
 
-import com.quec1994.common.rabbit.SendMessageService;
+import com.quec1994.rabbit.send.direct.message.DirectMessageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.NonNull;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("rabbit")
 @Api(tags = "RabbitMQ测试")
 public class RabbitTestController {
-    @NonNull SendMessageService sendMessageService;
+    @NonNull DirectMessageService sendMessageService;
 
     @GetMapping("oneToOne")
     @ApiOperation(value = "发送一对一消息")

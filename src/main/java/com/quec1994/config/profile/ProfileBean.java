@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Profile;
 import javax.annotation.PostConstruct;
 
 /**
- * <P>ClassName: ProfileBean</P>
- * <P>Description: 多环境下加载不同的bean测试</P>
+ * <P>ClassName: ProfileBean
+ * <P>Description: 多环境下加载不同的bean测试
  *
  * @author quec1994
  * @version V1.0, 2019/1/25

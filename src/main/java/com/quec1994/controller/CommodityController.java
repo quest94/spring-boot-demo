@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 /**
- * <P>ClassName: CommodityController</P>
- * <P>Description: 商品控制器</P>
+ * <P>ClassName: CommodityController
+ * <P>Description: 商品控制器
  *
  * @author quec1994
  * @version V1.0, 2019/1/30

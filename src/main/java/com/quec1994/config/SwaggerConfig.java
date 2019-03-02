@@ -13,8 +13,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * <P>ClassName: SwaggerConfig</P>
- * <P>Description: Swagger设置类</P>
+ * <P>ClassName: SwaggerConfig
+ * <P>Description: Swagger设置类
  *
  * @author quec1994
  * @version V1.0, 2019/2/27

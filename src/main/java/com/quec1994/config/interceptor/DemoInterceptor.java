@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <P>ClassName: DemoInterceptor</P>
- * <P>Description: 测试spring提供的拦截器</P>
+ * <P>ClassName: DemoInterceptor
+ * <P>Description: 测试spring提供的拦截器
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

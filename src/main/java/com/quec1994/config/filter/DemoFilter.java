@@ -7,8 +7,8 @@ import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
- * <P>ClassName: DemoFilter</P>
- * <P>Description: Servlet过滤器配置测试</P>
+ * <P>ClassName: DemoFilter
+ * <P>Description: Servlet过滤器配置测试
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

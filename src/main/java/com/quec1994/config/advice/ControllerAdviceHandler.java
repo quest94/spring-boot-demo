@@ -21,8 +21,8 @@ import java.util.Optional;
 import java.util.concurrent.TimeoutException;
 
 /**
- * <P>ClassName: CommonExceptionHandler</P>
- * <P>Description: 自定义异常处理类</P>
+ * <P>ClassName: CommonExceptionHandler
+ * <P>Description: 自定义异常处理类
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

@@ -9,8 +9,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
- * <P>ClassName: AddCommodityDTO</P>
- * <P>Description: 商品的传入属性</P>
+ * <P>ClassName: AddCommodityDTO
+ * <P>Description: 商品的传入属性
  *
  * @author quec1994
  * @version V1.0, 2019/1/30

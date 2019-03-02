@@ -1,8 +1,8 @@
-package com.quec1994.common.rabbit;
+package com.quec1994.rabbit;
 
 /**
- * <P>ClassName: Constants</P>
- * <P>Description: 用于保存RabbitMQ的queue、exchange、route-key标识</P>
+ * <P>ClassName: Constants
+ * <P>Description: 用于保存RabbitMQ的queue、exchange、route-key标识
  *
  * @author quec1994
  * @version V1.0, 2019/3/1

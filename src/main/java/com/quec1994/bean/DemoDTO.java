@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * <P>ClassName: DemoDTO</P>
- * <P>Description: 例子业务的Bean</P>
+ * <P>ClassName: DemoDTO
+ * <P>Description: 例子业务的Bean
  *
  * @author quec1994
  * @version V1.0, 2019/1/22

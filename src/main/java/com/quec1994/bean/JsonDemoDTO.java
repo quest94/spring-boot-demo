@@ -8,8 +8,8 @@ import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 /**
- * <P>ClassName: JsonDemoDTO</P>
- * <P>Description: jsondemo请求的传入参数对象</P>
+ * <P>ClassName: JsonDemoDTO
+ * <P>Description: jsondemo请求的传入参数对象
  *
  * @author quec1994
  * @version V1.0, 2019/1/26

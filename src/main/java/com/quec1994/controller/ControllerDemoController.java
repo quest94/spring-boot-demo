@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * <P>ClassName: ControllerDemoController</P>
- * <P>Description: 普通返回控制器测试</P>
+ * <P>ClassName: ControllerDemoController
+ * <P>Description: 普通返回控制器测试
  *
  * @author quec1994
  * @version V1.0, 2019/1/26

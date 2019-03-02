@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
- * <P>ClassName: DemoApplication</P>
- * <P>Description: spring boot 启动类</P>
+ * <P>ClassName: DemoApplication
+ * <P>Description: spring boot 启动类
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

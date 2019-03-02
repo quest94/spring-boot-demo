@@ -7,8 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * <P>ClassName: ErrorResp</P>
- * <P>Description: 发生错误时的统一响应实体</P>
+ * <P>ClassName: ErrorResp
+ * <P>Description: 发生错误时的统一响应实体
  *
  * @author quec1994
  * @version V1.0, 2019/1/28

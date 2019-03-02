@@ -25,8 +25,8 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 /**
- * <P>ClassName: UserController</P>
- * <P>Description: user控制器</P>
+ * <P>ClassName: UserController
+ * <P>Description: user控制器
  *
  * @author quec1994
  * @version V1.0, 2019/1/31

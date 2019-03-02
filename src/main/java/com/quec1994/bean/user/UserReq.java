@@ -12,8 +12,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
- * <P>ClassName: UserReq</P>
- * <P>Description: 添加用户前端传入参数</P>
+ * <P>ClassName: UserReq
+ * <P>Description: 添加用户前端传入参数
  *
  * @author quec1994
  * @version V1.0, 2019/2/27

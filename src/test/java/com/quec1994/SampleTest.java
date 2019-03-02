@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * <P>ClassName: SampleTest</P>
- * <P>Description: 简单测试类</P>
+ * <P>ClassName: SampleTest
+ * <P>Description: 简单测试类
  *
  * @author quec1994
  * @version V1.0, 2019/1/31
