@@ -1,4 +1,4 @@
-package com.quec1994;
+package other;
 
 import org.junit.Test;
 

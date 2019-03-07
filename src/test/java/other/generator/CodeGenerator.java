@@ -1,4 +1,4 @@
-package com.quec1994.generator;
+package other.generator;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
