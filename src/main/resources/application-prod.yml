@@ -1,5 +1,6 @@
 # 生产环境个性化配置
-
+# docker container 启动命令：
+  # docker run --name skeleton -d -v ~/skeleton/logs:/opt/skeleton/logs -p 8888:8888 --link redis5:redis --link rabbit37:rabbitmq --link mysql57:mysql spring-boot-skeleton
 server:
   # 修改tomcat的访问端口号位8888，默认为8080
   port: 8888
@@ -10,12 +11,30 @@ spring:
   # 数据库连接配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    url: jdbc:mysql://mysql:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
     username: root
     password: root
+  rabbitmq:
+    # 主机地址
+    host: rabbitmq
+    # 端口号
+    port: 5672
+    # 用户名
+    username: guest
+    # 密码
+    password: guest
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址
+    host: redis
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
 
 # 日志
 logging:
-  path: ${user.dir}\logs
+  path: ${user.dir}/logs
   level:
     root: info

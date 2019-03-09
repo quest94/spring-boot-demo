@@ -13,6 +13,24 @@ spring:
     url: jdbc:mysql://192.168.0.214:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
     username: root
     password: root
+  rabbitmq:
+    # 主机地址
+    host: 192.168.195.128
+    # 端口号
+    port: 5672
+    # 用户名
+    username: guest
+    # 密码
+    password: guest
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址
+    host: 192.168.195.128
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
 
 # 日志
 logging:

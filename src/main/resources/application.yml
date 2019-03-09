@@ -4,8 +4,8 @@ spring:
     name: spring-boot-skeleton
   # 激活哪一个环境的配置文件
   profiles:
-    #    active: prod
-    active: dev
+    active: prod
+#    active: dev
     include: druid,mybatis-plus,thymeleaf,redis,rabbitmq
   http:
     encoding:

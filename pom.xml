@@ -112,6 +112,30 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>0.4.9</version>
+        <configuration>
+          <!-- 镜像名称  -->
+          <imageName>spring-boot-skeleton</imageName>
+          <imageTags>1.0</imageTags>
+          <!-- docker远程服务器地址 -->
+          <dockerHost>http://192.168.195.128:2375</dockerHost>
+          <!-- Dockerfile文件存放目录 -->
+          <dockerDirectory>file/docker</dockerDirectory>
+          <resources>
+            <resource>
+              <directory>
+                target
+              </directory>
+              <include>
+                spring-boot-skeleton-0.0.1-SNAPSHOT.jar
+              </include>
+            </resource>
+          </resources>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
