@@ -1,5 +1,5 @@
 # Spring Boot skeleton
-Spring Boot 的骨架项目，目前整合了<br>
+Spring Boot 的练手项目，目前整合了<br>
 * Spring Boot 2.1.1.RELEASE
 * Redis
 * Project Lombok
