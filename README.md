@@ -1,4 +1,4 @@
-# Spring Boot skeleton
+# Spring Boot example
 Spring Boot 的练手项目，目前整合了<br>
 * Spring Boot 2.1.1.RELEASE
 * Redis
