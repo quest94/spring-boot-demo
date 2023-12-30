@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
- * <P>ClassName: SpringBootSkeletonApplication
+ * <P>ClassName: SpringBootDemoApplication
  * <P>Description: spring boot 启动类
  *
  * @author quec1994
@@ -15,10 +15,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication
 @ServletComponentScan
 @Slf4j
-public class SpringBootSkeletonApplication {
+public class SpringBootDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootSkeletonApplication.class, args);
+        SpringApplication.run(SpringBootDemoApplication.class, args);
         log.info("spring-boot-skeleton 服务启动完成");
     }
 }
