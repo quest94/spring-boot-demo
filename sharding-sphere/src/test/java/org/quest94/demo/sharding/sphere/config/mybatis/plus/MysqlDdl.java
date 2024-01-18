@@ -1,5 +1,7 @@
 package org.quest94.demo.sharding.sphere.config.mybatis.plus;
 
+import mybatis.mate.ddl.IDdlGenerator;
+import mybatis.mate.ddl.MysqlDdlGenerator;
 import mybatis.mate.ddl.SimpleDdl;
 import org.springframework.stereotype.Component;
 
@@ -9,15 +11,17 @@ import java.util.List;
 @Component
 public class MysqlDdl extends SimpleDdl {
 
+    @Override
+    public IDdlGenerator getDdlGenerator() {
+        return MysqlDdlGenerator.newInstance();
+    }
+
     /**
      * 执行 SQL 脚本方式
      */
-    @Override
-    public List<String> getSqlFiles() {
-        return Arrays.asList(
-                // 内置包方式
-                "db/test-schema.sql"
-//                ,"D:\\db\\tag-data.sql"
-        );
+    public void runScript(String sqlFile) {
+        // TODO 暂未实现
+        super.runScript(dataSource ->{});
     }
+
 }
