@@ -1,0 +1,97 @@
+spring:
+  shardingsphere:
+    props:
+      sql-show: true
+    # 数据库源配置，指定对应的库
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: org.apache.commons.dbcp2.BasicDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/mydb?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: myuser
+        password: userpassword
+      ds1:
+        type: org.apache.commons.dbcp2.BasicDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:33060/mydb?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: myuser
+        password: userpassword
+
+    rules:
+      sharding:
+        # 分布式序列算法配置，分片键生成算法
+        key-generators:
+          alg_snowflake:
+            # 雪花算法，生产 Long 类型的主键
+            type: SNOWFLAKE
+            # 如果需要做到均匀分片，还要自定义修改雪花算法
+            #                        type: MY_SNOWFLAKE
+            props:
+              work:
+                id: 1
+        # 分片算法
+        sharding-algorithms:
+          # MOD 分库策略
+          mod_algorithm:
+            type: MOD
+            props:
+              sharding-count: 2
+          test_data_inline_algorithm:
+            # 分表策略-INLINE，按单一分片键分表
+            type: INLINE
+            props:
+#             algorithm-expression: test_data_$->{id % 2 + 1}
+              # 这种算法如果 id 时严格递增的，就可以将数据均匀分到四个片。但是雪花算法并不是严格递增的。
+              # 如果需要做到均匀分片，修改算法的同时，还要修改雪花算法。把 SNOWFLAKE 换成 MY_SNOWFLAKE
+              algorithm-expression: test_data_$->{((id + 1) % 4).intdiv(2) + 1}
+              # 允许在 inline 策略中使用范围查询
+#              allow-range-query-with-inline-sharding: true
+            # 分表策略-COMPLEX_INLINE；按多个分片键组合分表
+#            type: COMPLEX_INLINE
+#            props:
+#              algorithm-expression: test_data_$->{((id + test_long) % 4).intdiv(2) + 1}
+            # 扩展自定义的复杂分片算法 -模仿 COMPLEX_INLINE 的实现方式
+#            type: MY_COMPLEX
+            # 使用 CLASS_BASED 分片算法 -不用 SPI 扩展文件
+#            type: CLASS_BASED
+#            props:
+              # 指定策略 STANDARD|COMPLEX|HINT
+#              strategy: COMPLEX
+              # 指定算法实现类。这个类必须时指定的策略对应的算法接口的实现类
+              # STANDARD -> StandardShardingAlgorithm；
+              # COMPLEX -> ComplexKeysShardingAlgorithm；
+              # HINT -> HintShardingAlgorithm；
+#              algorithmClassName: org.quest94.demo.sharding.sphere.config.sharding.sphere.MyComplexKeysShardingAlgorithm
+            # 分表策略-HINT；用与 SQL 无关的方式分表，使用 value关键字。
+#            type: HINT_INLINE
+#            props:
+#              algorithm-expression: test_data_$->{value}
+        # 逻辑表映射
+        tables:
+          # 逻辑表 test_data 的配置
+          test_data:
+            # 指定分布式主键生成策略
+            key-generate-strategy:
+              column: id
+              key-generator-name: alg_snowflake
+            # 逻辑表映射的真实表节点，实际的分片节点（数据库）：ds0.test_data_1、ds1.test_data_2、ds1.test_data_1、ds1.test_data_2
+            actual-data-nodes: ds$->{0..1}.test_data_$->{1..2}
+            # 给 test_data 表指定分库策略
+            database-strategy:
+              # standard-按单一分片键进行精确或范围分片
+              standard:
+                # 分片键
+                sharding-column: id
+                # 分片算法
+                sharding-algorithm-name: mod_algorithm
+            # 给 test_data 表指定分表策略
+            table-strategy:
+              # standard-按单一分片键进行精确或范围分片
+              standard:
+                sharding-column: id
+              # complex-按多个分片键进行组合分片
+#              complex:
+#                sharding-columns: id,test_long
+#              hint:
+                sharding-algorithm-name: test_data_inline_algorithm

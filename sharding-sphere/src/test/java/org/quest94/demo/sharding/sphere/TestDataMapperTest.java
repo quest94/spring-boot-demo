@@ -14,7 +14,7 @@ import java.util.List;
 
 @Disabled
 @SpringBootTest
-class MysqlTest {
+class TestDataMapperTest {
 
     @Autowired
     private TestDataMapper testDataMapper;
@@ -29,11 +29,26 @@ class MysqlTest {
     @Test
     @Order(1)
     void insertBatch() {
-        int size = 9;
+        int size = 20;
         List<TestData> testDataList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             String str = i + "条";
-            testDataList.add(new TestData().setTestInt(i).setTestEnum(TestEnum.TWO).setTestStr(str));
+            TestEnum testEnum = i % 2 == 0 ? TestEnum.TWO : TestEnum.ONE;
+            testDataList.add(new TestData().setTestLong(((long) i)).setTestEnum(testEnum).setTestStr(str));
+        }
+        Assertions.assertEquals(size, testDataMapper.insertBatchSomeColumn(testDataList));
+        testDataList.forEach(System.err::println);
+    }
+
+    @Test
+    @Order(1)
+    void query() {
+        int size = 20;
+        List<TestData> testDataList = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            String str = i + "条";
+            TestEnum testEnum = i % 2 == 0 ? TestEnum.TWO : TestEnum.ONE;
+            testDataList.add(new TestData().setTestLong((long) i).setTestEnum(testEnum).setTestStr(str));
         }
         Assertions.assertEquals(size, testDataMapper.insertBatchSomeColumn(testDataList));
         testDataList.forEach(System.err::println);
@@ -43,20 +58,20 @@ class MysqlTest {
     @Order(2)
     void testInsertAutoId() {
         // 自增 id 增长为 1
-        TestData testData = new TestData().setTestInt(1);
+        TestData testData = new TestData().setTestLong(1L);
         testData.setTestEnum(TestEnum.ONE).setTestStr("abc");
         Assertions.assertEquals(testDataMapper.insert(testData), 1);
         testData = testDataMapper.selectById(testData.getId());
         Assertions.assertNotNull(testData);
-        Assertions.assertEquals(1, testData.getId());
+        Assertions.assertEquals(1, testData.getTestEnum().getCode());
         System.err.println(testData);
         // 自增 id 增长为 2
-        TestData testData2 = new TestData().setTestInt(1);
+        TestData testData2 = new TestData().setTestLong(1L);
         testData2.setTestEnum(TestEnum.TWO).setTestStr("def");
         Assertions.assertEquals(testDataMapper.insert(testData2), 1);
         testData2 = testDataMapper.selectById(testData2.getId());
-        Assertions.assertTrue(null != testData2);
-        Assertions.assertEquals(2, testData2.getId());
+        Assertions.assertNotNull(testData2);
+        Assertions.assertEquals(2, testData2.getTestEnum().getCode());
         System.err.println(testData2);
     }
 }

@@ -22,7 +22,7 @@ public class TestData implements Serializable {
     @TableId(type = IdType.AUTO)
     private Long id;
     @TableField(jdbcType = JdbcType.INTEGER)
-    private Integer testInt;
+    private Long testLong;
     @TableField("test_str")
     private String testStr;
     @TableField(fill = FieldFill.INSERT)

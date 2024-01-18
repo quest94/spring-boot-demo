@@ -1,6 +1,7 @@
 package org.quest94.demo.sharding.sphere.config.mybatis.plus;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
@@ -48,8 +49,13 @@ public class MybatisPlusConfig {
             }
         };
 
+        GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig()
+                // 让 MybatisPlus 不自动对 id 字段赋值
+                .setIdType(IdType.AUTO)
+                .setColumnFormat("`%s`");
+
         GlobalConfig conf = new GlobalConfig();
-        conf.setDbConfig(new GlobalConfig.DbConfig().setColumnFormat("`%s`"));
+        conf.setDbConfig(dbConfig);
         conf.setSqlInjector(logicSqlInjector);
         return conf;
     }
