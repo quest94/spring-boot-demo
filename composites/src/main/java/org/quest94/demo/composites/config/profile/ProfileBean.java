@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Profile;
  * @author quec1994
  * @version V1.0, 2019/1/25
  **/
-@Profile("prod")//支持数组:@Profile({"dev","test"})
+@Profile("dev")//支持数组:@Profile({"dev","test"})
 @Configuration
 @Slf4j
 public class ProfileBean {
