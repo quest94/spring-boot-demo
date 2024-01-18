@@ -1,7 +1,7 @@
 package org.quest94.demo.composites.service.impl;
 
-import org.quest94.demo.composites.service.IDemoService;
 import lombok.extern.slf4j.Slf4j;
+import org.quest94.demo.composites.service.IDemoService;
 import org.springframework.stereotype.Service;
 
 /**

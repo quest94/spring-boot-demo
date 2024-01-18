@@ -1,11 +1,11 @@
 package org.quest94.demo.composites.config.filter;
 
+import jakarta.servlet.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import jakarta.servlet.*;
 import java.io.IOException;
 
 /**

@@ -1,11 +1,10 @@
 package org.quest94.demo.composites.config;
 
-import com.alibaba.fastjson2.JSONReader;
 import com.alibaba.fastjson2.JSONWriter;
 import com.alibaba.fastjson2.support.config.FastJsonConfig;
 import com.alibaba.fastjson2.support.spring6.http.converter.FastJsonHttpMessageConverter;
-import org.quest94.demo.composites.config.interceptor.DemoInterceptor;
 import lombok.extern.slf4j.Slf4j;
+import org.quest94.demo.composites.config.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

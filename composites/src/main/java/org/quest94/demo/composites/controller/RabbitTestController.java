@@ -1,13 +1,11 @@
 package org.quest94.demo.composites.controller;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.quest94.demo.composites.rabbit.send.direct.message.DirectMessage2Sender;
 import org.quest94.demo.composites.rabbit.send.direct.message.DirectMessageSender;
 import org.quest94.demo.composites.rabbit.send.fanout.message.FanoutSender;
 import org.quest94.demo.composites.rabbit.send.topic.message.TopicSender;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("rabbit")
-@Api(tags = "RabbitMQ测试")
+// @Api(tags = "RabbitMQ测试")
 public class RabbitTestController {
 
     @NonNull DirectMessageSender directMessageSender;
@@ -31,14 +29,14 @@ public class RabbitTestController {
     @NonNull FanoutSender fanoutSender;
 
     @GetMapping("oneToOne")
-    @ApiOperation(value = "发送单生产者对单消费者消息")
+    // @ApiOperation(value = "发送单生产者对单消费者消息")
     public Boolean sendMessageOneToOne() {
         directMessageSender.sendDirectMessage("测试哈哈哈");
         return Boolean.TRUE;
     }
 
     @GetMapping("oneToMany")
-    @ApiOperation(value = "发送单生产者对多消费者消息")
+    // @ApiOperation(value = "发送单生产者对多消费者消息")
     public void sendMessageOneToMany() {
         int len = 10;
         //循环十次，消费者发送十条消息到RabbitMQ
@@ -48,7 +46,7 @@ public class RabbitTestController {
     }
 
     @GetMapping("/manyToMany")
-    @ApiOperation(value = "发送多生产者对多消费者消息")
+    // @ApiOperation(value = "发送多生产者对多消费者消息")
     public void manyToMany() {
         int len = 10;
         for (int i = 0; i < len; i++) {
@@ -58,13 +56,13 @@ public class RabbitTestController {
     }
 
     @GetMapping("/topicTest")
-    @ApiOperation(value = "topic exchange类型rabbitmq测试")
+    // @ApiOperation(value = "topic exchange类型rabbitmq测试")
     public void topicTest() {
         topicSender.send();
     }
 
     @GetMapping("/fanoutTest")
-    @ApiOperation(value = "fanout exchange类型rabbitmq测试")
+    // @ApiOperation(value = "fanout exchange类型rabbitmq测试")
     public void fanoutTest() {
         fanoutSender.send();
     }

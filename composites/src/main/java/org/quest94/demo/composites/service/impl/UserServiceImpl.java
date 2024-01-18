@@ -1,12 +1,12 @@
 package org.quest94.demo.composites.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.quest94.demo.composites.entity.user.User;
 import org.quest94.demo.composites.mapper.user.UserMapper;
 import org.quest94.demo.composites.rabbit.send.user.save.SaveUserSender;
 import org.quest94.demo.composites.service.IUserService;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

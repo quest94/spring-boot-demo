@@ -1,14 +1,12 @@
 package org.quest94.demo.composites.config.advice.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import jakarta.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 /**
@@ -19,12 +17,12 @@ import java.util.Optional;
  * @version V1.0, 2019/1/28
  **/
 @Controller
-@Api(tags = "统一错误返回处理控制器")
+// @Api(tags = "统一错误返回处理控制器")
 @RequestMapping("return")
 public class ErrorController {
 
     @RequestMapping("html")
-    @ApiOperation(value = "返回错误信息显示页面")
+    // @ApiOperation(value = "返回错误信息显示页面")
     @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
     public String resultHtml() {
         return "error/error";
@@ -33,7 +31,7 @@ public class ErrorController {
     @RequestMapping("json")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
-    @ApiOperation(value = "返回json格式的错误信息")
+    // @ApiOperation(value = "返回json格式的错误信息")
     public ErrorResp resultJson(HttpServletRequest request) {
         ErrorResp errorResp = new ErrorResp();
         errorResp.setCode(119);

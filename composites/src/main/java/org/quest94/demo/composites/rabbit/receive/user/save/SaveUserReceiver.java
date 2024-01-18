@@ -1,9 +1,9 @@
 package org.quest94.demo.composites.rabbit.receive.user.save;
 
 import com.alibaba.fastjson2.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.quest94.demo.composites.entity.user.User;
 import org.quest94.demo.composites.rabbit.Constants;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;

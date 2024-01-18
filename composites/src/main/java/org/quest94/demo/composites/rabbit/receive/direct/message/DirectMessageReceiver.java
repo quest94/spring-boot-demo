@@ -1,7 +1,7 @@
 package org.quest94.demo.composites.rabbit.receive.direct.message;
 
-import org.quest94.demo.composites.rabbit.Constants;
 import lombok.extern.slf4j.Slf4j;
+import org.quest94.demo.composites.rabbit.Constants;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;

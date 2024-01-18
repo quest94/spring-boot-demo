@@ -2,6 +2,9 @@ package org.quest94.demo.composites.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import jakarta.validation.Valid;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.quest94.demo.composites.bean.user.UserModifyReq;
 import org.quest94.demo.composites.bean.user.UserReq;
 import org.quest94.demo.composites.bean.user.UserResp;
@@ -10,19 +13,12 @@ import org.quest94.demo.composites.entity.user.SexEnum;
 import org.quest94.demo.composites.entity.user.StatusEnum;
 import org.quest94.demo.composites.entity.user.User;
 import org.quest94.demo.composites.service.IUserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
 import java.util.Optional;
 
 /**
@@ -34,7 +30,7 @@ import java.util.Optional;
  **/
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "用户API")
+// @Api(tags = "用户API")
 public class UserController {
 
     @NonNull
@@ -44,7 +40,7 @@ public class UserController {
     @NonNull IUserService userService;
 
     @PostMapping("user")
-    @ApiOperation(value = "用户新增")
+    // @ApiOperation(value = "用户新增")
     public Boolean addUser(@Valid @RequestBody UserReq userReq) {
         User user = userReq2User(userReq);
         /* 由于设置了主键策略 id可不用赋值 会自动生成
@@ -64,7 +60,7 @@ public class UserController {
     }
 
     @PutMapping("user")
-    @ApiOperation(value = "用户修改")
+    // @ApiOperation(value = "用户修改")
     //更新时 直接删除缓存 以保证下次获取时先从数据库中获取最新数据
     @CacheEvict(value = "DEMO", key = "#userReq.id")
     public Boolean updateUser(@Valid @RequestBody UserModifyReq userReq) {
@@ -80,8 +76,8 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    @ApiOperation(value = "用户查询(ID)")
-    @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111aaa222bbb", required = true)
+    // @ApiOperation(value = "用户查询(ID)")
+    // @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111aaa222bbb", required = true)
     // spring cache管理缓存
     @Cacheable(value = "DEMO", key = "#id")
     public UserResp getUser(@PathVariable("id") String id) {
@@ -92,8 +88,8 @@ public class UserController {
     }
 
     @GetMapping("/userDIY/{id}")
-    @ApiOperation(value = "用户查询(ID)-手动控制缓存")
-    @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111aaa222bbb", required = true)
+    // @ApiOperation(value = "用户查询(ID)-手动控制缓存")
+    // @ApiImplicitParam(name = "id", value = "用户ID", dataType = "String", paramType = "path", example = "111aaa222bbb", required = true)
     public UserResp getUserDIY(@PathVariable("id") String id) {
         UserResp userResp;
         User user = urt.opsForValue().get(id);
@@ -120,9 +116,9 @@ public class UserController {
     }
 
     @GetMapping("/user/page")
-    @ApiOperation(value = "用户查询(分页)")
-    @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", dataType = "int", example = "0", paramType = "query", required = true),
-            @ApiImplicitParam(name = "size", value = "每页大小", dataType = "int", example = "0", paramType = "query", required = true)})
+    // @ApiOperation(value = "用户查询(分页)")
+    // @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", dataType = "int", example = "0", paramType = "query", required = true),
+            // @ApiImplicitParam(name = "size", value = "每页大小", dataType = "int", example = "0", paramType = "query", required = true)})
     public IPage pageUser(int current, int size) {
         // 分页
         Page<User> page = new Page<>(current, size);

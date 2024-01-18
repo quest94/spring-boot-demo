@@ -1,7 +1,7 @@
 package org.quest94.demo.composites.controller;
 
-import org.quest94.demo.composites.config.advice.exception.CommonException;
 import lombok.RequiredArgsConstructor;
+import org.quest94.demo.composites.config.advice.exception.CommonException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
