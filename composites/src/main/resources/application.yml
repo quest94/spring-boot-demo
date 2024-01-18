@@ -5,7 +5,7 @@ spring:
   # 激活哪一个环境的配置文件
   profiles:
     active: dev
-    include: druid,mybatis-plus,thymeleaf,redis,rabbitmq
+    include: druid,thymeleaf,redis,rabbitmq
   http:
     encoding:
       charset: UTF-8

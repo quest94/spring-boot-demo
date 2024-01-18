@@ -9,10 +9,10 @@ spring:
     cache: false
   # 数据库连接配置
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.195.128:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
-    username: quest94
-    password: quest94
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: myuser
+    password: userpassword
   rabbitmq:
     # 主机地址
     host: 192.168.195.128
