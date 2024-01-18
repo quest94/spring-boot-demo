@@ -5,6 +5,7 @@
 
   <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
   <springProperty scope="context" name="LOG_LEVEL" source="logging.level.root"/>
+  <property name="LOG_PATH" value="${LOG_PATH:-${user.dir:-.}/logs}"/>
 
   <!-- 彩色日志 -->
   <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
@@ -175,7 +176,6 @@
 
   <!--开发环境:打印控制台-->
   <springProfile name="dev">
-    <property name="APP_NAME" value="composites/target/log"/>
     <root level="${LOG_LEVEL:-debug}">
       <appender-ref ref="CONSOLE"/>
       <appender-ref ref="DEBUG_FILE"/>

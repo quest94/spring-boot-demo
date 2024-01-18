@@ -38,9 +38,10 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 # 日志
 logging:
-  path: ${user.dir}\target\logs
   level:
-    root: info
+    root: debug
+  file:
+    path: ${user.dir}\target\logs
 #  config: classpath:logback-spring.xml
 
 
