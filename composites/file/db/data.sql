@@ -1,4 +1,4 @@
-DELETE FROM user;
+TRUNCATE user;
 
 INSERT INTO user (id, code, name, age, sex, email, status) VALUES
 ('111aaa222bbb', 'u0001', 'Jone', 18, 1, 'test1@baomidou.com', 1),
