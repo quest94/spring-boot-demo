@@ -44,7 +44,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(modelName);
-        pc.setParent("com.quec1994.generator");
+        pc.setParent("org.quest94.demo.composites.generator");
         mpg.setPackageInfo(pc);
 
         // 自定义配置

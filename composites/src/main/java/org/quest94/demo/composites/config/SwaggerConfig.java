@@ -18,7 +18,7 @@ public class SwaggerConfig {
 //                // 是否开启
 //                .enable(true).select()
 //                // 扫描的路径包
-//                .apis(RequestHandlerSelectors.basePackage("com.quec1994"))
+//                .apis(RequestHandlerSelectors.basePackage("org.quest94.demo.composites"))
 //                // 指定路径处理PathSelectors.any()代表所有的路径
 //                .paths(PathSelectors.any()).build().pathMapping("/");
 //    }

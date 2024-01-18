@@ -1,4 +1,4 @@
-package com.quec1994;
+package org.quest94.demo.composites;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

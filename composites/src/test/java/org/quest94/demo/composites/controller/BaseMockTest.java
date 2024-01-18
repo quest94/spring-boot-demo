@@ -1,4 +1,4 @@
-package com.quec1994.controller;
+package org.quest94.demo.composites.controller;
 
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;

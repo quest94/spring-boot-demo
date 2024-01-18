@@ -1,4 +1,4 @@
-package com.quec1994.controller;
+package org.quest94.demo.composites.controller;
 
 import org.junit.After;
 import org.junit.Assert;

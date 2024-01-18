@@ -1,4 +1,4 @@
-package com.quec1994.service;
+package org.quest94.demo.composites.service;
 
 import org.databene.contiperf.PerfTest;
 import org.databene.contiperf.junit.ContiPerfRule;
