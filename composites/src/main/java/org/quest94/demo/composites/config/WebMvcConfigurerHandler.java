@@ -1,8 +1,9 @@
 package org.quest94.demo.composites.config;
 
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.alibaba.fastjson2.JSONReader;
+import com.alibaba.fastjson2.JSONWriter;
+import com.alibaba.fastjson2.support.config.FastJsonConfig;
+import com.alibaba.fastjson2.support.spring6.http.converter.FastJsonHttpMessageConverter;
 import org.quest94.demo.composites.config.interceptor.DemoInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
@@ -67,16 +68,14 @@ public class WebMvcConfigurerHandler implements WebMvcConfigurer {
             WriteNullBooleanAsFalse         —— Boolean字段如果为null,输出为false,而非null
             DisableCircularReferenceDetect  —— 消除对同一对象循环引用的问题，默认为false
          */
-        fastJsonConfig.setSerializerFeatures(
-                SerializerFeature.DisableCircularReferenceDetect
-        );
         // 设置WriteEnumUsingToString
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteEnumUsingToString);
+        fastJsonConfig.setWriterFeatures(JSONWriter.Feature.WriteEnumUsingToString);
         msgConverter.setFastJsonConfig(fastJsonConfig);
         // 2-1 处理中文乱码问题
         List<MediaType> mediaTypes = new ArrayList<>();
         mediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
         msgConverter.setSupportedMediaTypes(mediaTypes);
         converters.add(0, msgConverter);
+        log.warn("整合fastJson2为Http消息转换器");
     }
 }

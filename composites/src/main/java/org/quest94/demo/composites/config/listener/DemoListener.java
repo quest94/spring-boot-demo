@@ -2,9 +2,9 @@ package org.quest94.demo.composites.config.listener;
 
 import lombok.extern.slf4j.Slf4j;
 
-import javax.servlet.ServletRequestEvent;
-import javax.servlet.ServletRequestListener;
-import javax.servlet.annotation.WebListener;
+import jakarta.servlet.ServletRequestEvent;
+import jakarta.servlet.ServletRequestListener;
+import jakarta.servlet.annotation.WebListener;
 
 /**
  * <P>ClassName: DemoListener

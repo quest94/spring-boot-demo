@@ -1,6 +1,6 @@
 package org.quest94.demo.composites.entity.user;
 
-import com.baomidou.mybatisplus.core.enums.IEnum;
+import com.baomidou.mybatisplus.annotation.IEnum;
 import lombok.AllArgsConstructor;
 
 /**

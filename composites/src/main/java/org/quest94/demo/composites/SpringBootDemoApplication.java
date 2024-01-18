@@ -3,7 +3,6 @@ package org.quest94.demo.composites;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
  * <P>ClassName: SpringBootDemoApplication
@@ -13,7 +12,6 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  * @version V1.0, 2019/1/28
  **/
 @SpringBootApplication
-@ServletComponentScan
 @Slf4j
 public class SpringBootDemoApplication {
 

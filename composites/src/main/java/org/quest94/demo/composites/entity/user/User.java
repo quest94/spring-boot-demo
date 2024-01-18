@@ -1,7 +1,7 @@
 package org.quest94.demo.composites.entity.user;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson2.JSONWriter;
+import com.alibaba.fastjson2.annotation.JSONField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -51,7 +51,7 @@ public class User implements Serializable {
      * 性别：1 男，2 女
      * 数据库字段: status int(2)
      */
-    @JSONField(serialzeFeatures = SerializerFeature.WriteEnumUsingToString)
+    @JSONField(serializeFeatures = JSONWriter.Feature.WriteEnumUsingToString)
     private SexEnum sex;
 
     /**
@@ -64,7 +64,7 @@ public class User implements Serializable {
      * 状态 1启用 0 停用
      * 数据库字段: status int(2)
      */
-    @JSONField(serialzeFeatures = SerializerFeature.WriteEnumUsingToString)
+    @JSONField(serializeFeatures = JSONWriter.Feature.WriteEnumUsingToString)
     private StatusEnum status;
 
     /**

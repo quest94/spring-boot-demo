@@ -1,11 +1,10 @@
 #项目运行配置环境
 spring:
   application:
-    name: spring-boot-skeleton
+    name: spring-boot-demo-composites
   # 激活哪一个环境的配置文件
   profiles:
-    active: prod
-#    active: dev
+    active: dev
     include: druid,mybatis-plus,thymeleaf,redis,rabbitmq
   http:
     encoding:
