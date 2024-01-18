@@ -42,7 +42,7 @@ logging:
   level:
     root: debug
   file:
-    path: ${user.dir}\target\logs
+    path: ${user.dir}\composites\target\logs
 #  config: classpath:logback-spring.xml
 
 
