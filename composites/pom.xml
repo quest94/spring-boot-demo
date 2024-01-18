@@ -66,20 +66,6 @@
 <!--                <artifactId>springfox-swagger-ui</artifactId>-->
 <!--                <version>3.0.0</version>-->
 <!--            </dependency>-->
-            <!-- freemarker -->
-            <dependency>
-                <groupId>org.freemarker</groupId>
-                <artifactId>freemarker</artifactId>
-                <version>2.3.32</version>
-                <scope>test</scope>
-            </dependency>
-            <!-- contiperf -->
-            <dependency>
-                <groupId>org.databene</groupId>
-                <artifactId>contiperf</artifactId>
-                <version>2.3.4</version>
-                <scope>test</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -152,6 +138,20 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- freemarker -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.32</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- contiperf -->
+<!--        <dependency>-->
+<!--            <groupId>org.databene</groupId>-->
+<!--            <artifactId>contiperf</artifactId>-->
+<!--            <version>2.3.4</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

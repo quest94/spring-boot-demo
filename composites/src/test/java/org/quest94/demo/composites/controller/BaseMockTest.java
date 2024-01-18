@@ -1,6 +1,6 @@
 package org.quest94.demo.composites.controller;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -20,7 +20,7 @@ public class BaseMockTest {
 
     protected MockMvc mockMvc;
 
-    @Before
+    @BeforeEach
     public void beforeSetUp() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(wc).build();
     }

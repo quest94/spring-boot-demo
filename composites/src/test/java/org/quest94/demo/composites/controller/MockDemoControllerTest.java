@@ -1,13 +1,12 @@
 package org.quest94.demo.composites.controller;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
@@ -19,11 +18,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
 // 因为是mock测试，在实际开发过程中，可指定其测试启动时为随机端口，避免了不必要的端口冲突。
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 // 测试单一接口时 ，也可利用注解@WebMvcTest 进行单一测试
-// @WebMvcTest(DemoController.class)
+//@WebMvcTest(MockDemoController.class)
 public class MockDemoControllerTest {
 
     /* 使用 WebMvcTest 时使用 @autowired mockMvc 是可自动注入的。
@@ -35,12 +33,12 @@ public class MockDemoControllerTest {
     @Autowired
     WebApplicationContext wc;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(wc).build();
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
     }
 
@@ -56,7 +54,7 @@ public class MockDemoControllerTest {
         MvcResult result = perform.andReturn();
 
         //断言 是否和预期相等
-        Assert.assertEquals("\"" + msg + "\"", result.getResponse().getContentAsString());
+        Assertions.assertEquals("\"" + msg + "\"", result.getResponse().getContentAsString());
 
     }
 }

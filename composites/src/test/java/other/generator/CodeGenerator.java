@@ -2,10 +2,9 @@ package other.generator;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.builder.CustomFile;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
-import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 import java.util.ArrayList;
@@ -21,39 +20,26 @@ import java.util.List;
 public class CodeGenerator {
 
     private static void generator(String modelName, String... tableName) {
-        // 代码生成器
-        AutoGenerator mpg = new AutoGenerator();
 
         // 全局配置
-        GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/src/test/java");
-        gc.setAuthor("quest94");
-        gc.setOpen(false);
-        mpg.setGlobalConfig(gc);
+        GlobalConfig gc = new GlobalConfig.Builder()
+                .outputDir(projectPath + "/src/test/java")
+                .author("quest94")
+                .disableOpenDir()
+                .build();
 
+        String url = "jdbc:mysql://192.168.195.128:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false";
+        String username = "myuser";
+        String password = "userpassword";
         // 数据源配置
-        DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.195.128:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false");
-        // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("quest94");
-        dsc.setPassword("quest94");
-        mpg.setDataSource(dsc);
+        DataSourceConfig dsc = new DataSourceConfig.Builder(url, username, password).build();
 
         // 包配置
-        PackageConfig pc = new PackageConfig();
-        pc.setModuleName(modelName);
-        pc.setParent("org.quest94.demo.composites.generator");
-        mpg.setPackageInfo(pc);
-
-        // 自定义配置
-        InjectionConfig cfg = new InjectionConfig() {
-            @Override
-            public void initMap() {
-                // to do nothing
-            }
-        };
+        PackageConfig pc = new PackageConfig.Builder()
+                .moduleName(modelName)
+                .parent("org.quest94.demo.composites.generator")
+                .build();
 
         // 如果模板引擎是 freemarker
         String templatePath = "/templates/mapper.xml.ftl";
@@ -61,47 +47,54 @@ public class CodeGenerator {
         // String templatePath = "/templates/mapper.xml.vm";
 
         // 自定义输出配置
-        List<FileOutConfig> focList = new ArrayList<>();
+        List<CustomFile> focList = new ArrayList<>();
         // 自定义配置会被优先输出
-        focList.add(new FileOutConfig(templatePath) {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输出文件名
-                return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
-                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
-            }
-        });
+        CustomFile customFile = new CustomFile.Builder()
+                .templatePath(templatePath)
+                .formatNameFunction((TableInfo tableInfo) -> {
+                    // 自定义输出文件名
+                    return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
+                            + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                })
+                .build();
+        focList.add(customFile);
 
-        cfg.setFileOutConfigList(focList);
-        mpg.setCfg(cfg);
+        // 自定义配置
+        InjectionConfig cfg = new InjectionConfig.Builder()
+                .customFile(focList)
+                .build();
 
         // 配置模板
-        TemplateConfig templateConfig = new TemplateConfig();
-
-        // 配置自定义输出模板
-        //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
-        // templateConfig.setEntity("templates/entity2.java");
-        // templateConfig.setService();
-        // templateConfig.setController();
-
-        templateConfig.setXml(null);
-        mpg.setTemplate(templateConfig);
+        TemplateConfig templateConfig = new TemplateConfig.Builder()
+                // 配置自定义输出模板
+                //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
+//                 .entity("templates/entity2.java")
+                // templateConfig.setService();
+                // templateConfig.setController();
+                .build();
 
         // 策略配置
-        StrategyConfig strategy = new StrategyConfig();
-        strategy.setNaming(NamingStrategy.underline_to_camel);
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+        StrategyConfig strategy = new StrategyConfig.Builder()
+//        strategy.setNaming(NamingStrategy.underline_to_camel);
+//        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
 //        strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");
-        strategy.setEntityLombokModel(true);
-        strategy.setRestControllerStyle(true);
+//        strategy.setEntityLombokModel(true);
+//        strategy.setRestControllerStyle(true);
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
-        strategy.setInclude(tableName);
-        strategy.setSuperEntityColumns("id");
-        strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(pc.getModuleName() + "_");
-        mpg.setStrategy(strategy);
-        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
-        mpg.execute();
+                .addInclude(tableName)
+//        strategy.setSuperEntityColumns("id");
+//        strategy.setControllerMappingHyphenStyle(true);
+//        strategy.setTablePrefix(pc.getModuleName() + "_");
+                .build();
+
+        // 代码生成器
+        AutoGenerator mpg = new AutoGenerator(dsc);
+        mpg.global(gc);
+        mpg.packageInfo(pc);
+        mpg.injection(cfg);
+        mpg.template(templateConfig);
+        mpg.strategy(strategy);
+        mpg.execute(new FreemarkerTemplateEngine());
     }
 
     public static void main(String[] args) {
