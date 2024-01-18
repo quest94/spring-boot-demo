@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
  * <P>ClassName: ProfileBean
  * <P>Description: 多环境下加载不同的bean测试
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/25
  **/
 @Profile("dev")//支持数组:@Profile({"dev","test"})

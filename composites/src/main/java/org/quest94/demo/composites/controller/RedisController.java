@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <P>ClassName: RedisController
  * <P>Description: redis测试控制器
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/2/28
  **/
 @RestController

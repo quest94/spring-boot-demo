@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  * <P>ClassName: DemoServiceImpl
  * <P>Description: 例子业务的处理服务实现类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/22
  **/
 @Service

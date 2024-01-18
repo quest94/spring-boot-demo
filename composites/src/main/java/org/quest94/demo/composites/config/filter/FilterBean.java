@@ -11,7 +11,7 @@ import java.io.IOException;
  * <P>ClassName: FilterBean
  * <P>Description: 直接往spring中注册Servlet过滤器
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 @Component

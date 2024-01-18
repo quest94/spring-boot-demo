@@ -4,7 +4,7 @@ package org.quest94.demo.composites.config.advice.exception;
  * <P>ClassName: CommonException
  * <P>Description: 自定义控制层抛出异常
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 public class CommonException extends RuntimeException {

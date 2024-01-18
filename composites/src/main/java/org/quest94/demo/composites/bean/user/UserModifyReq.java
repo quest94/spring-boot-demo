@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.Range;
  * <P>ClassName: UserModifyReq
  * <P>Description: 添加用户时使用的请求类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/2/28
  **/
 @EqualsAndHashCode(callSuper = false)

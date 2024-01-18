@@ -18,7 +18,7 @@ import java.util.Map;
  * <P>ClassName: DemoController
  * <P>Description: JSON字符串返回例子的控制器类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/22
  **/
 @RestController
@@ -37,7 +37,7 @@ public class RestControllerDemoController {
     /**
      * 测试例子跳转页面
      *
-     * @author V1.0, quec1994, 2019/1/26 11:58
+     * @author V1.0, quest94, 2019/1/26 11:58
      **/
     @RequestMapping("demo")
     public Map<String, Object> demo() {
@@ -52,7 +52,7 @@ public class RestControllerDemoController {
      *
      * @param jsonDemoDTO 前端传参
      * @return 接收到的前端传参
-     * @author V1.0, quec1994, 2019/1/26 11:27
+     * @author V1.0, quest94, 2019/1/26 11:27
      **/
     @PostMapping("RequestBodyDemo")
     public String requestBodyDemo(@Valid @RequestBody JsonDemoDTO jsonDemoDTO, ModelMap modelMap) {
@@ -76,7 +76,7 @@ public class RestControllerDemoController {
     /**
      * 测试例子跳转页面
      *
-     * @author V1.0, quec1994, 2019/1/26 11:58
+     * @author V1.0, quest94, 2019/1/26 11:58
      **/
     @RequestMapping("exceptionDemo2/{id}")
     public String exceptionDemo2(@PathVariable int id){

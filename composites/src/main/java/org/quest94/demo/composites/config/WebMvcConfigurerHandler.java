@@ -20,7 +20,7 @@ import java.util.List;
  * <P>ClassName: WebMvcConfigurer
  * <P>Description: WebMvcConfigurer
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 @Configuration
@@ -31,7 +31,7 @@ public class WebMvcConfigurerHandler implements WebMvcConfigurer {
      * 添加自定义拦截器
      *
      * @param registry 拦截器注册器
-     * @author V1.0, quec1994, 2019/2/28 11:43
+     * @author V1.0, quest94, 2019/2/28 11:43
      **/
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -49,7 +49,7 @@ public class WebMvcConfigurerHandler implements WebMvcConfigurer {
      * 整合fastJson为Http消息转换器
      *
      * @param converters Http消息转换器集
-     * @author V1.0, quec1994, 2019/2/28 11:36
+     * @author V1.0, quest94, 2019/2/28 11:36
      **/
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {

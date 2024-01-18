@@ -15,7 +15,7 @@ import java.util.List;
  * <P>ClassName: CodeGenerator
  * <P>Description: MyBatis Plus代码生成器
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/31
  **/
 public class CodeGenerator {
@@ -28,7 +28,7 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/test/java");
-        gc.setAuthor("quec1994");
+        gc.setAuthor("quest94");
         gc.setOpen(false);
         mpg.setGlobalConfig(gc);
 
@@ -37,8 +37,8 @@ public class CodeGenerator {
         dsc.setUrl("jdbc:mysql://192.168.195.128:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("quec1994");
-        dsc.setPassword("quec1994");
+        dsc.setUsername("quest94");
+        dsc.setPassword("quest94");
         mpg.setDataSource(dsc);
 
         // 包配置

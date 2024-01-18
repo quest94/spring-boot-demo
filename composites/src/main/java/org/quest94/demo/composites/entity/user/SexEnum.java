@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
  * <P>ClassName: SexEnum
  * <P>Description: 性别枚举类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/3/1
  **/
 @AllArgsConstructor

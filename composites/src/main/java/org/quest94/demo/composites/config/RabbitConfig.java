@@ -10,7 +10,7 @@ import static org.quest94.demo.composites.rabbit.Constants.*;
  * <P>ClassName: RabbitMQConfig
  * <P>Description: RabbitMQ 配置
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/3/1
  **/
 @Configuration
@@ -20,7 +20,7 @@ public class RabbitConfig {
      * 创建普通userQueue队列
      *
      * @return userQueue队列
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      **/
     @Bean
     public Queue userQueue() {
@@ -70,7 +70,7 @@ public class RabbitConfig {
      * 创建验证topic Exchange的queueMessage队列
      *
      * @return queueMessage队列
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      **/
     @Bean
     public Queue queueMessage() {
@@ -81,7 +81,7 @@ public class RabbitConfig {
      * 创建验证topic Exchange的queueMessages队列
      *
      * @return queueMessages队列
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      **/
     @Bean
     public Queue queueMessages() {
@@ -96,7 +96,7 @@ public class RabbitConfig {
      * #（井号）：可以匹配多个单词（或者零个）
      *
      * @return exchange通配符交换机
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      **/
     @Bean
     TopicExchange topicExchange() {
@@ -130,7 +130,7 @@ public class RabbitConfig {
      * 创建验证Fanout Exchange的aMessage队列
      *
      * @return aMessage队列
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      **/
     @Bean
     public Queue aMessage() {
@@ -141,7 +141,7 @@ public class RabbitConfig {
      * 创建验证Fanout Exchange的bMessage队列
      *
      * @return bMessage队列
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      **/
     @Bean
     public Queue bMessage() {
@@ -152,7 +152,7 @@ public class RabbitConfig {
      * 创建验证Fanout Exchange的cMessage队列
      *
      * @return cMessage队列
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      **/
     @Bean
     public Queue cMessage() {
@@ -166,7 +166,7 @@ public class RabbitConfig {
      * 所有该exchagne上指定的routing-key都会被ignore掉。(原因：因为route-key无效)
      *
      * @return 扇形交换机
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      **/
     @Bean
     FanoutExchange fanoutExchange() {
@@ -177,7 +177,7 @@ public class RabbitConfig {
      * 将队列fanout.A队列与扇形交换机绑定
      *
      * @return 绑定关系
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      */
     @Bean
     Binding bindingExchangeA() {
@@ -188,7 +188,7 @@ public class RabbitConfig {
      * 将队列fanout.B队列与扇形交换机绑定
      *
      * @return 绑定关系
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      */
     @Bean
     Binding bindingExchangeB() {
@@ -199,7 +199,7 @@ public class RabbitConfig {
      * 将队列fanout.C队列与扇形交换机绑定
      *
      * @return 绑定关系
-     * @author V1.0, quec1994, 2019/3/1 14:10
+     * @author V1.0, quest94, 2019/3/1 14:10
      */
     @Bean
     Binding bindingExchangeC() {

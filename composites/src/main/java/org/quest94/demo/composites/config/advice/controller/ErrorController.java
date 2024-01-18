@@ -13,7 +13,7 @@ import java.util.Optional;
  * <P>ClassName: ErrorController
  * <P>Description: 错误返回的Controller类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 @Controller

@@ -11,7 +11,7 @@ import java.util.List;
  * <P>ClassName: JsonDemoDTO
  * <P>Description: jsondemo请求的传入参数对象
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/26
  **/
 @Data

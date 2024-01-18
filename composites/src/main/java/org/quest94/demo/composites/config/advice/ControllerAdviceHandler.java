@@ -24,7 +24,7 @@ import java.util.concurrent.TimeoutException;
  * <P>ClassName: CommonExceptionHandler
  * <P>Description: 自定义异常处理类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 @ControllerAdvice
@@ -49,7 +49,7 @@ public class ControllerAdviceHandler {
      *
      * @param ex 发生的异常
      * @return 根据访问方式跳转控制器路径
-     * @author V1.0, quec1994, 2019/1/28 20:02
+     * @author V1.0, quest94, 2019/1/28 20:02
      **/
     @ExceptionHandler(CommonException.class)
     public String exceptionHandler(HttpServletRequest request, CommonException ex) {
@@ -61,7 +61,7 @@ public class ControllerAdviceHandler {
      *
      * @param ex 发生的异常
      * @return 根据访问方式跳转控制器路径
-     * @author V1.0, quec1994, 2019/1/28 20:02
+     * @author V1.0, quest94, 2019/1/28 20:02
      **/
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public String httpMsgExceptionHandler(HttpServletRequest request, HttpMessageNotReadableException ex) {
@@ -75,7 +75,7 @@ public class ControllerAdviceHandler {
      *
      * @param ex 发生的异常
      * @return 根据访问方式跳转控制器路径
-     * @author V1.0, quec1994, 2019/1/28 20:02
+     * @author V1.0, quest94, 2019/1/28 20:02
      **/
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String methodArgumentExceptionHandler(HttpServletRequest request, MethodArgumentNotValidException ex) {
@@ -88,7 +88,7 @@ public class ControllerAdviceHandler {
      * @param request       请求
      * @param bindingResult 参数验证结果
      * @return 根据访问方式跳转控制器路径
-     * @author V1.0, quec1994, 2019/1/29 22:35
+     * @author V1.0, quest94, 2019/1/29 22:35
      **/
     private String methodArgumentNotValidException(HttpServletRequest request, BindingResult bindingResult) {
         String message;
@@ -106,7 +106,7 @@ public class ControllerAdviceHandler {
      *
      * @param ex 发生的异常
      * @return 根据访问方式跳转控制器路径
-     * @author V1.0, quec1994, 2019/1/29 22:25
+     * @author V1.0, quest94, 2019/1/29 22:25
      **/
     @ExceptionHandler(BindException.class)
     public String handleBindException(HttpServletRequest request, BindException ex) {
@@ -120,7 +120,7 @@ public class ControllerAdviceHandler {
      * @param ex      运行时抛出的异常
      * @return 根据访问方式跳转控制器路径
      * @author qyz, 2018/8/25 16:13
-     * @author V1.0, quec1994, 2019/1/28 21:05
+     * @author V1.0, quest94, 2019/1/28 21:05
      **/
     @ExceptionHandler(Exception.class)
     public String defaultExceptionHandler(HttpServletRequest request, HttpServletResponse response, Exception ex) {
@@ -147,7 +147,7 @@ public class ControllerAdviceHandler {
      * @param message 错误提示
      * @param error   错误信息
      * @return 请求的返回数据对应的控制器路径
-     * @author V1.0, quec1994, 2019/1/28 21:08
+     * @author V1.0, quest94, 2019/1/28 21:08
      **/
     private String jump(HttpServletRequest request, String message, String error) {
         request.setAttribute("message", message);

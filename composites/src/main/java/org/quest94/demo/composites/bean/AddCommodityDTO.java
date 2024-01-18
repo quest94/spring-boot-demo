@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * <P>ClassName: AddCommodityDTO
  * <P>Description: 商品的传入属性
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/30
  **/
 @Data

@@ -4,7 +4,7 @@ package org.quest94.demo.composites.config;
  * <P>ClassName: SwaggerConfig
  * <P>Description: Swagger设置类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/2/27
  **/
 // @Profile({"dev", "test"})// 开发环境和测试环境开启支持
@@ -26,9 +26,9 @@ public class SwaggerConfig {
 //    private ApiInfo apiInfo() {
 //        return new ApiInfoBuilder()
 //                .title("SpringBoot-Swagger2集成和使用-demo示例")
-//                .description("quec1994")
+//                .description("quest94")
 //                // 作者信息
-//                .contact(new Contact("quec1994", "", "quec1994@163.com"))
+//                .contact(new Contact("quest94", "", "quest94@163.com"))
 //                .version("1.0.0")
 //                .build();
 //    }

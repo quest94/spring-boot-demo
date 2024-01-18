@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * <P>ClassName: SpringBootDemoApplication
  * <P>Description: spring boot 启动类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 @SpringBootApplication

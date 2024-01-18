@@ -13,7 +13,7 @@ import java.io.IOException;
  * <P>Description: 使用FilterRegistrationBean的方式注册Servlet过滤器
  * <P>FilterRegistrationBean是springboot提供的，此类提供setOrder方法，可以为filter设置排序值，让spring在注册web filter之前排序后再依次注册。注册多个时，就注册多个FilterRegistrationBean即可
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 @Component

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * <P>ClassName: ControllerDemoController
  * <P>Description: 普通返回控制器测试
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/26
  **/
 @Controller
@@ -21,7 +21,7 @@ public class ControllerDemoController {
      * 主页跳转页面
      *
      * @return 模板页路径
-     * @author V1.0, quec1994, 2019/1/29 21:05
+     * @author V1.0, quest94, 2019/1/29 21:05
      **/
     @RequestMapping("index")
     public String demo() {
@@ -31,7 +31,7 @@ public class ControllerDemoController {
     /**
      * 测试例子跳转页面
      *
-     * @author V1.0, quec1994, 2019/1/26 11:58
+     * @author V1.0, quest94, 2019/1/26 11:58
      **/
     @RequestMapping("exceptionDemo1/{id}")
     public String exceptionDemo(@PathVariable int id){

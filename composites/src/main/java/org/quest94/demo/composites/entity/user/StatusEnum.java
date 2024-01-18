@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
  * <P>ClassName: StatusEnum
  * <P>Description: 用户状态枚举类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/3/1
  **/
 @AllArgsConstructor

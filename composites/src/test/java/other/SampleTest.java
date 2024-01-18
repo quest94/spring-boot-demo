@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
  * <P>ClassName: SampleTest
  * <P>Description: 简单测试类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/31
  **/
 public class SampleTest {

@@ -12,7 +12,7 @@ import org.hibernate.validator.constraints.Range;
  * <P>ClassName: UserReq
  * <P>Description: 添加用户前端传入参数
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/2/27
  **/
 @Data

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
  * 服务类
  *
  *
- * @author quec1994
+ * @author quest94
  * @since 2019-01-31
  */
 public interface IUserService extends IService<User> {

@@ -11,7 +11,7 @@ import org.quest94.demo.composites.entity.user.StatusEnum;
  * <P>ClassName: UserResp
  * <P>Description: 用于前端显示用户信息
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/2/27
  **/
 @Data

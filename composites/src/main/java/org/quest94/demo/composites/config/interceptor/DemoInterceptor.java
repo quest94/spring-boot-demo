@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
  * <P>ClassName: DemoInterceptor
  * <P>Description: 测试spring提供的拦截器
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 @Slf4j

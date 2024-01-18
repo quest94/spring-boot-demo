@@ -4,7 +4,7 @@ package org.quest94.demo.composites.rabbit;
  * <P>ClassName: Constants
  * <P>Description: 用于保存RabbitMQ的queue、exchange、route-key标识
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/3/1
  **/
 public class Constants {

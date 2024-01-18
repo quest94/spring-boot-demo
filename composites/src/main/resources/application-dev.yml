@@ -11,8 +11,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.195.128:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
-    username: quec1994
-    password: quec1994
+    username: quest94
+    password: quest94
   rabbitmq:
     # 主机地址
     host: 192.168.195.128

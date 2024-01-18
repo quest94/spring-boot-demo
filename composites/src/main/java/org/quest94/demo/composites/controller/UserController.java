@@ -25,7 +25,7 @@ import java.util.Optional;
  * <P>ClassName: UserController
  * <P>Description: user控制器
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/31
  **/
 @RestController

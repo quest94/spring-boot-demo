@@ -10,7 +10,7 @@ import java.io.IOException;
  * <P>ClassName: DemoFilter
  * <P>Description: Servlet过滤器配置测试
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/28
  **/
 //注册器名称为customFilter,拦截的url为所有,需要注意的是：注册多个过滤器时，无法指定执行顺序的，只能通过约定类名顺序达到指定顺序的目的

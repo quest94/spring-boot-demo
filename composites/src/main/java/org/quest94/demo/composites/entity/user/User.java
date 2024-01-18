@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * <p>
  * 用户实体类
  *
- * @author quec1994
+ * @author quest94
  * @since 2019-02-27
  */
 @Data

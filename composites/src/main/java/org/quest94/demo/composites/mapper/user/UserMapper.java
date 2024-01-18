@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * <P>ClassName: UserMapper
  * <P>Description: user映射类
  *
- * @author quec1994
+ * @author quest94
  * @version V1.0, 2019/1/31
  **/
 @Repository
