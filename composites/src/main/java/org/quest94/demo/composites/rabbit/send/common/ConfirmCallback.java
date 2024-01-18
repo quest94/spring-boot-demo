@@ -29,7 +29,6 @@ public class ConfirmCallback implements RabbitTemplate.ConfirmCallback {
     private RabbitTemplate rabbitTemplate;
 
     @PostConstruct
-    @Autowired
     public void init() {
         Assert.notNull(rabbitTemplate, "rabbitTemplate 不能为空");
         rabbitTemplate.setMandatory(true);
